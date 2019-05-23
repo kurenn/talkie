@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec-rails"
 
   spec.add_dependency "railties", ">= 4.2"
+  spec.add_dependency "activerecord", ">= 4.2"
 end

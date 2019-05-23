@@ -3,11 +3,14 @@
 ENV["RAILS_ENV"] ||= "test"
 
 require "rails/all"
+require "dummy/application"
 require "rspec/rails"
 
 require "ammeter/rspec/generator/example"
 require "ammeter/rspec/generator/matchers"
 require "ammeter/init"
+
+Dummy::Application.initialize!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
