@@ -6,3 +6,5 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem "sqlite3", "~> 1.4"
+gem 'shoulda-matchers'
+gem "database_cleaner","~> 1"

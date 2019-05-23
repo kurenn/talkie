@@ -7,6 +7,9 @@ module Dummy
   I18n.enforce_available_locales = true
 
   class Application < Rails::Application
+
+    I18n.enforce_available_locales = true
+
     config.active_support.deprecation = :stderr
     config.active_support.test_order = :random
     config.cache_classes = true
