@@ -3,15 +3,23 @@
 ENV["RAILS_ENV"] ||= "test"
 
 require "rails/all"
+require "dummy/application"
 require "rspec/rails"
+require "shoulda-matchers"
 
 require "ammeter/rspec/generator/example"
 require "ammeter/rspec/generator/matchers"
 require "ammeter/init"
 
+Dummy::Application.initialize!
+
+ActiveRecord::Migration.maintain_test_schema!
+
 RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
+  config.infer_spec_type_from_file_location!
   config.example_status_persistence_file_path = ".rspec_status"
+  config.order = :random
+  config.use_transactional_fixtures = true
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
