@@ -12,6 +12,10 @@ module Talkie
           has_many :comments, as: :creator,
                               class_name: 'Talkie::Comment',
                               inverse_of: :creator
+
+          def owns_comment?(comment)
+            self == comment.creator
+          end
         end
       end
 
