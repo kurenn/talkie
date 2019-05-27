@@ -7,3 +7,4 @@ module Talkie
 end
 
 require "talkie/acts_as_talker"
+require "talkie/acts_as_commentable"

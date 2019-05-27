@@ -11,7 +11,11 @@ require "ammeter/rspec/generator/example"
 require "ammeter/rspec/generator/matchers"
 require "ammeter/init"
 
+require 'rails-controller-testing'
+
 Dummy::Application.initialize!
+
+Rails::Controller::Testing.install
 
 ActiveRecord::Migration.maintain_test_schema!
 
