@@ -1,7 +1,7 @@
 module Talkie
   class CommentsController < ::ApplicationController
-    before_action :set_user, only: [:create]
-    before_action :ensure_authenticated_user
+    before_action :set_user, :ensure_authenticated_user
+    before_action :set_comment, :correct_user!, only: [:destroy]
 
     def create
       @comment = Talkie::Comment.new(comment_params)
@@ -18,10 +18,23 @@ module Talkie
       end
     end
 
+    def destroy
+      @comment.destroy
+      redirect_to @comment.commentable
+    end
+
     private
 
     def comment_params
       params.require(:comment).permit(:body, :commentable_id, :commentable_type)
+    end
+
+    def correct_user!
+      redirect_back fallback_location: root_path, status: :unauthorized unless @user.owns_comment?(@comment)
+    end
+
+    def set_comment
+      @comment = Talkie::Comment.find(params[:id])
     end
 
     def set_user
