@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_230022) do
+ActiveRecord::Schema.define(version: 2019_05_27_182237) do
 
   create_table "dummy_commentables", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 2019_05_23_230022) do
     t.integer "commentable_id"
     t.string "commentable_type"
     t.text "body", null: false
+    t.integer "parent_id"
+    t.integer "lft"
+    t.integer "rgt"
+    t.integer "children_count", default: 0
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

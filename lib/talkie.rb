@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require "talkie/version"
 require "talkie/engine"
+require "active_record"
+require "awesome_nested_set"
 
 module Talkie
   class Error < StandardError; end

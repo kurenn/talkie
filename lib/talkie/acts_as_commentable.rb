@@ -2,17 +2,21 @@
 
 module Talkie
   module ActsAsCommentable
-    def self.included(base)
-      base.extend(ClassMethods)
+    extend ActiveSupport::Concern
+
+    module InstanceMethods
+      def root_parents
+        comments.where(parent_id: nil)
+      end
     end
 
     module ClassMethods
       def acts_as_commentable
-        class_eval do
-          has_many :comments, as: :commentable,
-                              class_name: "Talkie::Comment",
-                              inverse_of: :commentable
-        end
+        has_many :comments, as: :commentable,
+                            class_name: "Talkie::Comment",
+                            inverse_of: :commentable
+
+        include Talkie::ActsAsCommentable::InstanceMethods
       end
 
       alias_method :is_commentable, :acts_as_commentable
