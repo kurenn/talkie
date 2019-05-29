@@ -1,0 +1,12 @@
+<%= form_for [talkie, Talkie::Comment.new] do |f| %>
+  <%= f.hidden_field :commentable_id, value: commentable.id %>
+  <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+
+  <div class="field form-group">
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.submit "Post comment", class: 'btn btn-primary' %>
+  </div>
+<% end %>

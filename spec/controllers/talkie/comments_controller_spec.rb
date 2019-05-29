@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Talkie::CommentsController, type: :controller do
   routes { Talkie::Engine.routes }
@@ -40,14 +40,45 @@ RSpec.describe Talkie::CommentsController, type: :controller do
                                            commentable_type: "DummyCommentable",
                                            commentable_id: commentable.id } }
 
-        expect(response).to redirect_to commentable
-        expect(assigns(:comment).errors).to be_empty
+        expect(assigns(:comment)).to be_persisted
+        expect(response).to redirect_to dummy_commentable_path(commentable)
       end
 
       it "will create the comment" do
         expect { post :create, params: { comment: { body: "A sample body",
                                            commentable_type: "DummyCommentable",
                                            commentable_id: commentable.id } } }.to change { Talkie::Comment.count }.by(1)
+      end
+
+      context "when the comment is not a reply" do
+        before do
+          @parent_comment = Talkie::Comment.create(body: "A sample body",
+                                                   commentable: commentable,
+                                                   creator: DummyUser.create)
+        end
+
+        it "will create the simple comment" do
+          expect { post :create, params: { comment: { body: "A sample body",
+                                                      commentable_type: "DummyCommentable",
+                                                      commentable_id: commentable.id } } }.not_to change { @parent_comment.reload.children_count }
+
+        end
+      end
+
+      context "when the comment is a reply" do
+        before do
+          @parent_comment = Talkie::Comment.create(body: "A sample body",
+                                                   commentable: commentable,
+                                                   creator: DummyUser.create)
+        end
+
+        it "will create the nested reply for the comment" do
+          expect { post :create, params: { parent_comment_id: @parent_comment.id,
+                                           comment: { body: "A sample body",
+                                                      commentable_type: "DummyCommentable",
+                                                      commentable_id: commentable.id } } }.to change { @parent_comment.reload.children_count }.by(1)
+
+        end
       end
     end
   end

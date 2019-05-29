@@ -1,0 +1,22 @@
+<div class="comments-show">
+  <div class="comment">
+    <p><%= comment.body %><br></p>
+    <% if renderer.nested_enabled? %>
+      <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
+      <div class="reply-form ml-5">
+        <%= form_for [talkie, Talkie::Comment.new] do |f| %>
+          <%= f.hidden_field :commentable_id, value: commentable.id %>
+          <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+          <%= hidden_field_tag :parent_comment_id, comment.id %>
+          <div class="field form-group">
+            <%= f.text_area :body, class: 'form-control' %>
+          </div>
+          <div class="field form-group">
+            <%= submit_tag "Post Reply", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+      <%= render comment.children, commentable: commentable, renderer: renderer %>
+    <% end %>
+  </div>
+</div>

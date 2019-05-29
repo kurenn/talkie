@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 require "generators/talkie/install_generator"
 
 RSpec.describe Talkie::Generators::InstallGenerator, type: :generator do

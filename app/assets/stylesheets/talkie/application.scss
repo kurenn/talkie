@@ -1,0 +1,36 @@
+.comments-header {
+  border-bottom: 1px dotted gray;
+  margin-bottom: 10px;
+}
+
+.comments-container {
+  p {
+    margin-bottom: 0px;
+  }
+  .comment-nav {
+    margin-left: 5px;
+    margin-bottom: 10px;
+
+    a {
+      font-size: 10px;
+      font-weight: bold;
+      color: #888;
+    }
+  }
+}
+
+.reply-form {
+  display: block;
+}
+
+.comments-show {
+  margin-left: 2.25rem;
+}
+
+.comments-replies {
+  margin-left: 2.25rem;
+}
+
+.comments-show .comments-show .comments-show .comments-show .comments-show  .comments-show{
+  margin-left: 0;
+}
