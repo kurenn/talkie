@@ -16,3 +16,4 @@ end
 
 require "talkie/acts_as_talker"
 require "talkie/acts_as_commentable"
+require "talkie/comments_renderer_helper"
