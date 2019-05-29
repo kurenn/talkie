@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/kurenn/talkie/maintainability"><img src="https://api.codeclimate.com/v1/badges/a9148bef84de0a1f97ad/maintainability" /></a>
+
 # Talkie
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/talkie`. To experiment with that code, run `bin/console` for an interactive prompt.

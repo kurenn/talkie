@@ -8,3 +8,4 @@ gemspec
 gem "sqlite3", "~> 1.4"
 gem 'shoulda-matchers'
 gem "database_cleaner","~> 1"
+gem 'simplecov',                 require: false
