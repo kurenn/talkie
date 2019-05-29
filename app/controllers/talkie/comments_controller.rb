@@ -9,6 +9,7 @@ module Talkie
 
       respond_to do |format|
         if @comment.save
+          make_child_comment if reply?
           format.html { redirect_to main_app.polymorphic_path(@comment.commentable), notice: "Comment was successfully added." }
           format.js
         else
@@ -43,6 +44,15 @@ module Talkie
 
     def ensure_authenticated_user
       redirect_back fallback_location: main_app.root_path, status: :forbidden if @user.nil?
+    end
+
+    def reply?
+      params[:parent_comment_id].present?
+    end
+
+    def make_child_comment
+      parent_comment = Comment.find params[:parent_comment_id]
+      @comment.move_to_child_of(parent_comment)
     end
   end
 end
