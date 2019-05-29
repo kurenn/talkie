@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+
 require 'spec_helper'
 
 require File.expand_path("../dummy/config/environment", __FILE__)
@@ -12,6 +13,7 @@ require "shoulda-matchers"
 require "ammeter/rspec/generator/example"
 require "ammeter/rspec/generator/matchers"
 require "ammeter/init"
+require "pry"
 
 Rails::Controller::Testing.install
 

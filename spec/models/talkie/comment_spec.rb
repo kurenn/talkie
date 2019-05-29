@@ -14,6 +14,24 @@ RSpec.describe Talkie::Comment, type: :model do
   it { is_expected.to belong_to(:creator).inverse_of(:comments) }
   it { is_expected.to belong_to(:commentable).inverse_of(:comments) }
 
+  describe ".default_scope" do
+    it "returns the comments in descending order, from newest to oldest" do
+      comment_1 = Talkie::Comment.create(body: "A sample body",
+                                     commentable: commentable,
+                                     creator: user)
+
+      comment_2 = Talkie::Comment.create(body: "A sample body",
+                                     commentable: commentable,
+                                     creator: user)
+
+      comment_3 = Talkie::Comment.create(body: "A sample body",
+                                     commentable: commentable,
+                                     creator: user)
+
+      expect(Array.wrap(Talkie::Comment.all)).to eql [comment_3, comment_2, comment_1]
+    end
+  end
+
   describe "#owns_comment?" do
     before do
       @comment = Talkie::Comment.new(body: "A sample body",

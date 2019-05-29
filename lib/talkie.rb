@@ -5,7 +5,9 @@ require "talkie/engine"
 require "awesome_nested_set"
 
 module Talkie
-  class Error < StandardError; end
+
+  @@default_comments_scope = -> { order(created_at: :desc) }
+  mattr_accessor :default_comments_scope
 
   def self.configure
     yield self
