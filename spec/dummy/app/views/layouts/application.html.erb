@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dummy</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <meta name="description" lang="en" content="">
+    <meta name="description" lang="es" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= yield :stylesheets %>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= yield :javascripts %>
+  </body>
+</html>

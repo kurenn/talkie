@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe Talkie::ActsAsTalker, type: :model do
   context ".class_methods" do

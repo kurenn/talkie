@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Talkie::CommentsController, type: :controller do
   routes { Talkie::Engine.routes }
@@ -40,8 +40,8 @@ RSpec.describe Talkie::CommentsController, type: :controller do
                                            commentable_type: "DummyCommentable",
                                            commentable_id: commentable.id } }
 
-        expect(response).to redirect_to commentable
-        expect(assigns(:comment).errors).to be_empty
+        expect(assigns(:comment)).to be_persisted
+        expect(response).to redirect_to dummy_commentable_path(commentable)
       end
 
       it "will create the comment" do

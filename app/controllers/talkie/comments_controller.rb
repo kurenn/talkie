@@ -9,7 +9,7 @@ module Talkie
 
       respond_to do |format|
         if @comment.save
-          format.html { redirect_to @comment.commentable, notice: "Comment was successfully added." }
+          format.html { redirect_to main_app.polymorphic_path(@comment.commentable), notice: "Comment was successfully added." }
           format.js
         else
           format.html { redirect_to :back, notice: "Something went wrong, blank comments are not allowed" }
@@ -20,7 +20,7 @@ module Talkie
 
     def destroy
       @comment.destroy
-      redirect_to @comment.commentable
+      redirect_to main_app.polymorphic_path(@comment.commentable)
     end
 
     private
@@ -30,7 +30,7 @@ module Talkie
     end
 
     def correct_user!
-      redirect_back fallback_location: root_path, status: :unauthorized unless @user.owns_comment?(@comment)
+      redirect_back fallback_location: main_app.root_path, status: :unauthorized unless @user.owns_comment?(@comment)
     end
 
     def set_comment
@@ -42,7 +42,7 @@ module Talkie
     end
 
     def ensure_authenticated_user
-      redirect_back fallback_location: root_path, status: :forbidden if @user.nil?
+      redirect_back fallback_location: main_app.root_path, status: :forbidden if @user.nil?
     end
   end
 end

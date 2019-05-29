@@ -33,8 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rails-controller-testing"
   spec.add_development_dependency "pry"
 
-  spec.add_dependency "railties", ">= 4.2"
-  spec.add_dependency "activerecord", ">= 4.2"
-  spec.add_dependency 'activemodel', '>= 4.2'
+  spec.add_dependency "rails", ">= 5.0"
+  spec.add_dependency "sassc-rails"
   spec.add_dependency "awesome_nested_set", "~> 3.1"
 end

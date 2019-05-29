@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe Talkie::ActsAsCommentable, type: :model do
   let(:dummy_commentable) { DummyCommentable.create }
