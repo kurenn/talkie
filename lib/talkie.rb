@@ -2,12 +2,14 @@
 
 require "talkie/version"
 require "talkie/engine"
-require "active_record"
 require "awesome_nested_set"
 
 module Talkie
   class Error < StandardError; end
-  # Your code goes here...
+
+  def self.configure
+    yield self
+  end
 end
 
 require "talkie/acts_as_talker"
