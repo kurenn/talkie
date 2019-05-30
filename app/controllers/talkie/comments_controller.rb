@@ -1,11 +1,8 @@
 module Talkie
-  class CommentsController < ::ApplicationController
-    before_action :set_user, :ensure_authenticated_user
-    before_action :set_comment, :correct_user!, only: [:destroy]
-
+  class CommentsController < Talkie::ApplicationController
     def create
       @comment = Talkie::Comment.new(comment_params)
-      @comment.creator = @user
+      @comment.creator = current_user
 
       respond_to do |format|
         if @comment.save
@@ -20,30 +17,14 @@ module Talkie
     end
 
     def destroy
-      @comment.destroy
-      redirect_to main_app.polymorphic_path(@comment.commentable)
+      current_comment.destroy
+      redirect_to main_app.polymorphic_path(current_comment.commentable)
     end
 
     private
 
     def comment_params
       params.require(:comment).permit(:body, :commentable_id, :commentable_type)
-    end
-
-    def correct_user!
-      redirect_back fallback_location: main_app.root_path, status: :unauthorized unless @user.owns_comment?(@comment)
-    end
-
-    def set_comment
-      @comment = Talkie::Comment.find(params[:id])
-    end
-
-    def set_user
-      @user = current_user
-    end
-
-    def ensure_authenticated_user
-      redirect_back fallback_location: main_app.root_path, status: :forbidden if @user.nil?
     end
 
     def reply?
