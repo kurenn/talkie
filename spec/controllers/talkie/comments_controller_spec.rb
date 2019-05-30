@@ -1,19 +1,11 @@
 require "rails_helper"
+require "support/mock_calls"
 
 RSpec.describe Talkie::CommentsController, type: :controller do
   routes { Talkie::Engine.routes }
   let(:user) { DummyUser.create }
   let(:commentable) { DummyCommentable.create }
 
-  before do
-    def sign_in(user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    end
-
-    def sign_out
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(nil)
-    end
-  end
 
   describe "#create" do
     context "when there is no user logged in" do
@@ -26,7 +18,7 @@ RSpec.describe Talkie::CommentsController, type: :controller do
                                            commentable_type: "DummyCommentable",
                                            commentable_id: commentable.id } }
 
-        expect(response).to have_http_status(:forbidden)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
 
@@ -94,7 +86,7 @@ RSpec.describe Talkie::CommentsController, type: :controller do
       it "won't delete the comment" do
         delete :destroy, params: { id: comment.id }
 
-        expect(response).to have_http_status(:forbidden)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
 
