@@ -1,3 +1,4 @@
+ [![Build Status](https://travis-ci.org/kurenn/talkie.svg?branch=master)](https://travis-ci.org/kurenn/talkie)
 <a href="https://codeclimate.com/github/kurenn/talkie/maintainability"><img src="https://api.codeclimate.com/v1/badges/a9148bef84de0a1f97ad/maintainability" /></a>
 
 # Talkie

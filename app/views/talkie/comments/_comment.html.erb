@@ -1,4 +1,7 @@
 <div class="comments-show">
+  <% if allow? :destroy, comment %>
+    <%= link_to "DELETE", [talkie, comment], method: :delete %>
+  <% end %>
   <div class="comment">
     <p><%= comment.body %><br></p>
     <% if renderer.nested_enabled? %>

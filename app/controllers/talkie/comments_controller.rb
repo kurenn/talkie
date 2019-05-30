@@ -1,5 +1,7 @@
 module Talkie
-  class CommentsController < Talkie::ApplicationController
+  class CommentsController < TalkieController
+    before_action :current_comment, only: [:destroy]
+
     def create
       @comment = Talkie::Comment.new(comment_params)
       @comment.creator = current_user
@@ -34,6 +36,10 @@ module Talkie
     def make_child_comment
       parent_comment = Comment.find params[:parent_comment_id]
       @comment.move_to_child_of(parent_comment)
+    end
+
+    def current_comment
+      @current_comment ||= Talkie::Comment.find_by(id: params[:id])
     end
   end
 end
