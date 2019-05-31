@@ -1,7 +1,4 @@
 ---
-env:
-  global:
-    - CC_TEST_REPORTER_ID=ABC123
 sudo: false
 language: ruby
 before_script:
