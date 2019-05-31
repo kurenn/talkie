@@ -1,4 +1,5 @@
  [![Build Status](https://travis-ci.org/kurenn/talkie.svg?branch=master)](https://travis-ci.org/kurenn/talkie)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a9148bef84de0a1f97ad/test_coverage)](https://codeclimate.com/github/kurenn/talkie/test_coverage)
 <a href="https://codeclimate.com/github/kurenn/talkie/maintainability"><img src="https://api.codeclimate.com/v1/badges/a9148bef84de0a1f97ad/maintainability" /></a>
 
 # Talkie
