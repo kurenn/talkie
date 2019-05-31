@@ -16,6 +16,6 @@ end
 
 require "talkie/acts_as_talker"
 require "talkie/acts_as_commentable"
-require "talkie/comments_renderer_helper"
 require "talkie/permission"
 require "talkie/controller"
+require "talkie/renderer_helper"
