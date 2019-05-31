@@ -23,7 +23,11 @@ module Talkie
     end
 
     def root_comments
-      @root_comments ||= @commentable.root_parents
+      comments = @commentable.root_parents
+      comments = comments.includes(:creator) if display_user_handler?
+      comments = comments.includes(:children) if nested_enabled?
+
+      comments
     end
   end
 end
