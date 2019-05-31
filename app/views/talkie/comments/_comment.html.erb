@@ -2,7 +2,9 @@
   <% if allow? :destroy, comment %>
     <%= link_to "DELETE", [talkie, comment], method: :delete %>
   <% end %>
+
   <div class="comment">
+    <small><%= time_ago_in_words comment.created_at %></small>
     <p><%= comment.body %><br></p>
     <% if renderer.nested_enabled? %>
       <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
