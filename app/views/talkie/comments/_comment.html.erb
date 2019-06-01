@@ -2,9 +2,17 @@
   <% if allow? :destroy, comment %>
     <%= link_to "DELETE", [talkie, comment], method: :delete %>
   <% end %>
+
   <div class="comment">
+    <small><%= time_ago_in_words comment.created_at %></small>
+
+    <% if display_user_handler? %>
+      <p><%= link_to_creator comment.creator, class: "creator-link" %></p>
+    <% end %>
+
     <p><%= comment.body %><br></p>
-    <% if renderer.nested_enabled? %>
+
+    <% if nested_enabled? %>
       <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
       <div class="reply-form ml-5">
         <%= form_for [talkie, Talkie::Comment.new] do |f| %>
@@ -19,7 +27,7 @@
           </div>
         <% end %>
       </div>
-      <%= render comment.children, commentable: commentable, renderer: renderer %>
+      <%= render comment.children %>
     <% end %>
   </div>
 </div>
