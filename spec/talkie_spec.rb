@@ -14,4 +14,16 @@ RSpec.describe Talkie do
 
     expect(Talkie.default_comments_scope.call).to eql 5
   end
+
+  it "returns email as the default comment_creator_handler option" do
+    expect(Talkie.comment_creator_handler).to eql :email
+  end
+
+  it "returns username as the comment_creator_handler when changed" do
+    Talkie.configure do |config|
+      config.comment_creator_handler = :username
+    end
+
+    expect(Talkie.comment_creator_handler).to eql :username
+  end
 end

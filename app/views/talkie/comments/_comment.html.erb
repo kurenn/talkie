@@ -6,6 +6,10 @@
   <div class="comment">
     <small><%= time_ago_in_words comment.created_at %></small>
 
+    <% if display_user_handler? %>
+      <p><%= link_to_creator comment.creator, class: "creator-link" %></p>
+    <% end %>
+
     <p><%= comment.body %><br></p>
 
     <% if nested_enabled? %>
