@@ -9,11 +9,13 @@ module Talkie
     DELEGATED_METHODS_TO_COMMENTS_RENDERER = [:commentable,
                                               :root_comments,
                                               :nested_enabled?,
-                                              :display_user_handler?].freeze
+                                              :display_user_handler?,
+                                              :display_user_avatar?].freeze
 
     HELPER_METHODS = [:talkie_on,
                       :nested_enabled?,
                       :display_user_handler?,
+                      :display_user_avatar?,
                       :root_comments,
                       :commentable].freeze
 
@@ -36,6 +38,5 @@ module Talkie
     def comments_renderer
       @comments_renderer
     end
-
   end
 end

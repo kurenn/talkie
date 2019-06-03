@@ -15,6 +15,9 @@ module Talkie
   @@creator_path = lambda { |user, router| "#" }
   mattr_accessor :creator_path
 
+  @@creator_avatar_url = lambda { |user| "//api.adorable.io/avatars/40/abott@adorable.png" }
+  mattr_accessor :creator_avatar_url
+
   def self.configure
     yield self
   end
