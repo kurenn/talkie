@@ -1,7 +1,9 @@
 @import "variables";
 
 .talkie {
-  &-comments-form-container {
+
+  &-comments-form-container,
+  &-comments-reply-form-container {
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
     margin-bottom: 10px;
@@ -15,6 +17,7 @@
       display: inline-block;
       font-size: 13px;
       height: 60px;
+      line-height: 1.5;
       margin-bottom: 10px;
       padding: 10px;
       vertical-align: top;
@@ -48,44 +51,98 @@
 
   &-comments-count {
     color: #333;
-    margin: 0 0 10px 0;
+    margin: 0 0 40px 0;
   }
-}
 
-
-.comments-header {
-  border-bottom: 1px dotted gray;
-  margin-bottom: 10px;
-}
-
-.comments-container {
-  p {
-    margin-bottom: 0px;
+  &-comment-holder {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    width: 90%;
   }
-  .comment-nav {
-    margin-left: 5px;
-    margin-bottom: 10px;
 
-    a {
-      font-size: 10px;
-      font-weight: bold;
-      color: #888;
+  &-comment-body {
+    color: #222;
+    font-size: 16px;
+    line-height: 1.2;
+    margin: 25px 0 0 0;
+  }
+
+  &-comment-delete {
+    color: #666;
+    display: inline-block;
+    font: 11px 'Source Sans Pro', sans-serif;
+    margin-left: 10px;
+    text-decoration: none;
+  }
+
+  &-comment-content {
+    margin-left: 60px;
+
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+
+  &-comment-footer {
+    margin-top: 20px;
+
+    .talkie-comment-reply {
+      margin-bottom: 20px;
+    }
+
+    .talkie-comment-reply-link {
+      color: #666;
+      font: 11px 'Source Sans Pro', sans-serif;
+      text-transform: uppercase;
+      text-decoration: none;
+      -webkit-transition: color 0.2s; /* Safari */
+      transition: color 0.2s;
+
+      &:hover {
+        color: #222;
+      }
+    }
+
+    .talkie-comments-reply-form-container {
+      border-bottom: none;
+    }
+  }
+
+  &-comment-created-at {
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  &-comment-creator {
+    &-avatar {
+      float: left;
+
+      img {
+        border-radius: 1000px;
+      }
+    }
+
+    &-link {
+      color: #222;
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
 
-.reply-form {
-  display: block;
+.talkie-comment-holder .talkie-comment-holder {
+  border-bottom: none;
+  margin-bottom: 0;
+  width: 100%;
 }
 
-.comments-show {
-  margin-left: 2.25rem;
-}
-
-.comments-replies {
-  margin-left: 2.25rem;
-}
-
-.comments-show .comments-show .comments-show .comments-show .comments-show  .comments-show{
+.talkie-comment-content .talkie-comment-content .talkie-comment-content .talkie-comment-content {
   margin-left: 0;
 }
