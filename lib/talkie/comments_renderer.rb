@@ -19,11 +19,11 @@ module Talkie
     end
 
     def display_user_avatar?
-      @options[:display_user_avatar] || false
+      @options[:display_user_avatar] || true
     end
 
     def display_user_handler?
-      @options[:display_user_handler] || false
+      @options[:display_user_handler] || true
     end
 
     def root_comments

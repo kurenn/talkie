@@ -10,9 +10,9 @@
       <% if display_user_handler? %>
         <div class="talkie-comment-creator">
           <%= link_to_creator comment.creator, class: "talkie-comment-creator-link" %>
-          <small class="talkie-comment-created-at"><%= l comment.created_at, format: :long %></small>
         </div>
       <% end %>
+      <small class="talkie-comment-created-at"><%= l comment.created_at, format: :long %></small>
 
     </header>
     <p class="talkie-comment-body">
