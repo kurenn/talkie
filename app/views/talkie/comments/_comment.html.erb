@@ -6,6 +6,12 @@
   <div class="comment">
     <small><%= time_ago_in_words comment.created_at %></small>
 
+    <% if display_user_avatar? %>
+      <div>
+        <%= avatar_image_tag comment.creator %>
+      </div>
+    <% end %>
+
     <% if display_user_handler? %>
       <p><%= link_to_creator comment.creator, class: "creator-link" %></p>
     <% end %>

@@ -6,16 +6,18 @@ module Talkie
   module RendererHelper
     extend ActiveSupport::Concern
 
-    DELEGATED_METHODS_TO_COMMENTS_RENDERER = [:commentable,
-                                              :root_comments,
-                                              :nested_enabled?,
-                                              :display_user_handler?].freeze
+    DELEGATED_METHODS_TO_COMMENTS_RENDERER = %i[commentable
+                                                root_comments
+                                                nested_enabled?
+                                                display_user_handler?
+                                                display_user_avatar?].freeze
 
-    HELPER_METHODS = [:talkie_on,
-                      :nested_enabled?,
-                      :display_user_handler?,
-                      :root_comments,
-                      :commentable].freeze
+    HELPER_METHODS = %i[talkie_on
+                        nested_enabled?
+                        display_user_handler?
+                        display_user_avatar?
+                        root_comments
+                        commentable].freeze
 
     included do
       delegate *DELEGATED_METHODS_TO_COMMENTS_RENDERER, to: :comments_renderer
@@ -36,6 +38,5 @@ module Talkie
     def comments_renderer
       @comments_renderer
     end
-
   end
 end
