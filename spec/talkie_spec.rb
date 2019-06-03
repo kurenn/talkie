@@ -17,7 +17,7 @@ RSpec.describe Talkie do
   end
 
   it "returns email as the default comment_creator_handler option" do
-    expect(Talkie.creator_avatar_url.call(dummy_user)).to eql "//api.adorable.io/avatars/285/abott@adorable.png"
+    expect(Talkie.creator_avatar_url.call(dummy_user)).to eql "//api.adorable.io/avatars/40/abott@adorable.png"
   end
 
   context "when the comment_creater is changed" do
