@@ -1,0 +1,16 @@
+---
+en:
+  talkie:
+    comments:
+      form:
+        submit: "Publish"
+        body_placeholder: "Write your comment..."
+      count:
+        plural: "comments"
+        singular: "comment"
+    comment:
+      reply: "Reply"
+      delete: "DELETE"
+      form:
+        reply: "Reply"
+        body_placeholder: "Write your deply..."

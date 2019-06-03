@@ -3,9 +3,9 @@
     <%= f.hidden_field :commentable_id, value: commentable.id %>
     <%= f.hidden_field :commentable_type, value: commentable.class.name %>
 
-    <%= f.text_area :body, placeholder: "Write your comment..." %>
-    <%= f.submit "Publish", class: "talkie-comments-form-submit" %>
+    <%= f.text_area :body, placeholder: t("talkie.comments.form.body_placeholder") %>
+    <%= f.submit t("talkie.comments.form.submit"), class: "talkie-comments-form-submit" %>
   <% end %>
 </div>
 
-<h5 class="talkie-comments-count"><%= pluralize commentable.comments.size, "comment", plural: "comments" %></h5>
+<h5 class="talkie-comments-count"><%= pluralize commentable.comments.size, t("talkie.comments.count.singular"), plural: t("talkie.comments.count.plural") %></h5>
