@@ -1,3 +1,58 @@
+@import "variables";
+
+.talkie {
+  &-comments-form-container {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    textarea {
+      background-color: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      box-sizing: border-box;
+      color: #222;
+      display: inline-block;
+      font-size: 13px;
+      height: 60px;
+      margin-bottom: 10px;
+      padding: 10px;
+      vertical-align: top;
+      width: 100%;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 5px;
+      -webkit-appearance: none;
+    }
+  }
+
+  &-comments-form-submit {
+    background-color: #4d90f0;
+    border: 1px solid #3079ed;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 8px 6px 0;
+    border-radius: 2px;
+    font-size: 11px;
+    height: 27px;
+    padding: 0 10px;
+    text-align: center;
+    text-shadow: 0 1px rgba(0,0,0,.1);
+    vertical-align: top;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-comments-count {
+    color: #333;
+    margin: 0 0 10px 0;
+  }
+}
+
+
 .comments-header {
   border-bottom: 1px dotted gray;
   margin-bottom: 10px;

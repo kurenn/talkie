@@ -1,12 +1,11 @@
-<%= form_for [talkie, Talkie::Comment.new] do |f| %>
-  <%= f.hidden_field :commentable_id, value: commentable.id %>
-  <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+<div class="talkie-comments-form-container">
+  <%= form_for [talkie, Talkie::Comment.new] do |f| %>
+    <%= f.hidden_field :commentable_id, value: commentable.id %>
+    <%= f.hidden_field :commentable_type, value: commentable.class.name %>
 
-  <div class="field form-group">
-    <%= f.text_area :body, class: 'form-control' %>
-  </div>
+    <%= f.text_area :body, placeholder: "Write your comment..." %>
+    <%= f.submit "Publish", class: "talkie-comments-form-submit" %>
+  <% end %>
+</div>
 
-  <div class="field form-group">
-    <%= f.submit "Post comment", class: 'btn btn-primary' %>
-  </div>
-<% end %>
+<h5 class="talkie-comments-count"><%= pluralize commentable.comments.size, "comment", plural: "comments" %></h5>
