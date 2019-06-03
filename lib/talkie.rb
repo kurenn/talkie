@@ -12,10 +12,10 @@ module Talkie
   @@comment_creator_handler = :email
   mattr_accessor :comment_creator_handler
 
-  @@creator_path = lambda { |user, router| "#" }
+  @@creator_path = lambda { |_user, _router| "#" }
   mattr_accessor :creator_path
 
-  @@creator_avatar_url = lambda { |user| "//api.adorable.io/avatars/40/abott@adorable.png" }
+  @@creator_avatar_url = lambda { |_user| "//api.adorable.io/avatars/40/abott@adorable.png" }
   mattr_accessor :creator_avatar_url
 
   def self.configure
