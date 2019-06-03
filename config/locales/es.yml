@@ -1,0 +1,16 @@
+---
+es:
+  talkie:
+    comments:
+      form:
+        submit: "Publicar"
+        body_placeholder: "Escribe tu comentario..."
+      count:
+        plural: "comentarios"
+        singular: "comentario"
+    comment:
+      reply: "Responder"
+      delete: "BORRAR"
+      form:
+        reply: "Responder"
+        body_placeholder: "Escribe tu respuesta..."

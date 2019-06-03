@@ -22,9 +22,9 @@
     <div class="talkie-comment-footer">
       <% if nested_enabled? %>
         <div class="talkie-comment-reply">
-          <a href="#" class="talkie-comment-reply-link">reply</a>
+          <a href="#" class="talkie-comment-reply-link"><%= t("talkie.comment.reply") %></a>
           <% if allow? :destroy, comment %>
-            <%= link_to "DELETE", [talkie, comment], method: :delete, class: "talkie-comment-delete" %>
+            <%= link_to t("talkie.comment.delete"), [talkie, comment], method: :delete, class: "talkie-comment-delete" %>
           <% end %>
         </div>
         <div class="talkie-comments-reply-form-container" style="display:none">
@@ -33,8 +33,8 @@
             <%= f.hidden_field :commentable_type, value: commentable.class.name %>
             <%= hidden_field_tag :parent_comment_id, comment.id %>
 
-            <%= f.text_area :body, placeholder: "Write your reply..." %>
-            <%= submit_tag "Reply", class: 'talkie-comments-form-submit' %>
+            <%= f.text_area :body, placeholder: t("talkie.comment.form.body_placeholder") %>
+            <%= submit_tag t("talkie.comment.form.reply"), class: 'talkie-comments-form-submit' %>
           <% end %>
         </div>
         <%= render comment.children %>
