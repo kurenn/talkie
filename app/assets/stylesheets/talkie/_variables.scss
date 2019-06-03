@@ -21,3 +21,51 @@ $talkie-form-submit-margin: 0 8px 6px 0!default;
 $talkie-form-submit-font-size: 11px !default;
 $talkie-form-submit-padding: 10px 12px !default;
 $talkie-form-submit-text-shadow: 0 1px rgba(0,0,0,.1) !default;
+
+// Comment
+//
+// Comments count
+$talkie-comments-count-color: #333 !default;
+$talkie-comments-count-margin: 0 0 40px 0 !default;
+
+// Comment holder
+$talkie-comment-holder-border-bottom: 1px solid #EEE !default;
+$talkie-comment-holder-margin-bottom: 40px !default;
+$talkie-comment-holder-padding-bottom: 20px !default;
+
+// Comment body
+$talkie-comment-body-color: #222 !default;
+$talkie-comment-body-font-size: 16px !default;
+$talkie-comment-body-line-height: 1.2 !default;
+$talkie-comment-body-margin: 25px 0 0 0 !default;
+
+// Comment delete
+$talkie-comment-delete-color: #666 !default;
+$talkie-comment-delete-font: 11px 'Source Sans Pro', sans-serif !default;
+$talkie-comment-delete-margin-left: 10px !default;
+
+// Comment content
+$talkie-comment-content-margin-left: 60px !default;
+
+// Comment footer
+$talkie-comment-footer-margin-top: 20px !default;
+
+// Comment reply
+$talkie-comment-reply-margin-bottom: 20px !default;
+
+// Comment reply link
+$talkie-comment-reply-link-color: #666 !default;
+$talkie-comment-reply-link-font: 11px 'Source Sans Pro', sans-serif !default;
+$talkie-comment-reply-link-text-transform: uppercase !default;
+$talkie-comment-reply-link-transition: color 0.2s !default;
+$talkie-comment-reply-link-hover-color: #222 !default;
+
+// Comment created at
+$talkie-comment-created-at-font-size: 10px !default;
+$talkie-comment-created-at-text-transform: uppercase !default;
+
+// Creator Avatar
+$talkie-comment-creator-avatar-border-radius: 1000px !default;
+
+// Creator link
+$talkie-comment-creator-link-color: #222 !default;

@@ -1,0 +1,103 @@
+.talkie {
+  &-comments-count {
+    color: $talkie-comments-count-color;
+    margin: $talkie-comments-count-margin;
+  }
+
+  &-comment-holder {
+    border-bottom: $talkie-comment-holder-border-bottom;
+    margin-bottom: $talkie-comment-holder-margin-bottom;
+    padding-bottom: $talkie-comment-holder-padding-bottom;
+    width: 90%;
+  }
+
+  &-comment-body {
+    color: $talkie-comment-body-color;
+    font-size: $talkie-comment-body-font-size;
+    line-height: $talkie-comment-body-line-height;
+    margin: $talkie-comment-body-margin;
+  }
+
+  &-comment-delete {
+    color: $talkie-comment-delete-color;
+    display: inline-block;
+    font: $talkie-comment-delete-font;
+    margin-left: $talkie-comment-delete-margin-left;
+    text-decoration: none;
+  }
+
+  &-comment-content {
+    margin-left: $talkie-comment-content-margin-left;
+
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+
+  &-comment-footer {
+    margin-top: $talkie-comment-footer-margin-top;
+
+    .talkie-comment-reply {
+      margin-bottom: $talkie-comment-reply-margin-bottom;
+    }
+
+    .talkie-comment-reply-link {
+      color: $talkie-comment-reply-link-color;
+      font: $talkie-comment-reply-link-font;
+      text-transform: $talkie-comment-reply-link-text-transform;
+      text-decoration: none;
+      -webkit-transition: $talkie-comment-reply-link-transition; /* Safari */
+      transition: $talkie-comment-reply-link-transition;
+
+      &:hover {
+        color: $talkie-comment-reply-link-hover-color;
+      }
+    }
+
+    .talkie-comments-reply-form-container {
+      border-bottom: none;
+    }
+  }
+
+  &-comment-created-at {
+    font-size: $talkie-comment-created-at-font-size;
+    text-transform: $talkie-comment-created-at-text-transform;
+  }
+
+  &-comment-creator {
+    &-avatar {
+      float: left;
+
+      img {
+        border-radius: $talkie-comment-creator-avatar-border-radius;
+      }
+    }
+
+    &-link {
+      color: $talkie-comment-creator-link-color;
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Nesting resets
+.talkie-comment-holder
+.talkie-comment-holder {
+  border-bottom: none;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.talkie-comment-content
+.talkie-comment-content
+.talkie-comment-content
+.talkie-comment-content {
+  margin-left: 0;
+}
