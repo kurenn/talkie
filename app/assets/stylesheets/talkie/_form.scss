@@ -1,0 +1,50 @@
+.talkie {
+  &-comments-form-container,
+  &-comments-reply-form-container {
+    border-bottom: $talkie-form-border-bottom;
+    padding-bottom: $talkie-form-padding-bottom;
+    margin-bottom: $talkie-form-margin-bottom;
+
+    textarea {
+      background-color: $talkie-form-textarea-background-color;
+      border: $talkie-form-textarea-border;
+      border-radius: $talkie-form-textarea-border-radius;
+      box-sizing: border-box;
+      color: $talkie-form-textarea-color;
+      display: inline-block;
+      font-size: $talkie-form-textarea-font-size;
+      height: $talkie-form-textarea-height;
+      line-height: $talkie-form-textarea-line-height;
+      margin-bottom: 10px;
+      padding: 10px;
+      vertical-align: top;
+      width: 100%;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -webkit-border-radius: $talkie-form-textarea-border-radius;
+      -moz-border-radius: $talkie-form-textarea-border-radius;
+      -webkit-appearance: none;
+    }
+  }
+
+  &-comments-form-submit {
+    background-color: $talkie-form-submit-background-color;
+    border: $talkie-form-submit-border;
+    border-radius: $talkie-form-submit-border-radius;
+    color: $talkie-form-submit-color;
+    font-size: $talkie-form-submit-font-size;
+    font-weight: $talkie-form-submit-font-weight;
+    margin: $talkie-form-submit-margin;
+    padding: $talkie-form-submit-padding;
+    text-align: center;
+    text-shadow: $talkie-form-submit-text-shadow;
+    vertical-align: top;
+
+    -webkit-border-radius: $talkie-form-submit-border-radius;
+    -moz-border-radius: $talkie-form-submit-border-radius;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
