@@ -1,39 +1,44 @@
-<div class="comments-show">
-  <% if allow? :destroy, comment %>
-    <%= link_to "DELETE", [talkie, comment], method: :delete %>
+<div class="talkie-comment-holder">
+  <% if display_user_avatar? %>
+    <div class="talkie-comment-creator-avatar">
+      <%= avatar_image_tag comment.creator %>
+    </div>
   <% end %>
 
-  <div class="comment">
-    <small><%= time_ago_in_words comment.created_at %></small>
+  <div class="talkie-comment-content">
+    <header class="talkie-comment-header">
+      <% if display_user_handler? %>
+        <div class="talkie-comment-creator">
+          <%= link_to_creator comment.creator, class: "talkie-comment-creator-link" %>
+          <small class="talkie-comment-created-at"><%= l comment.created_at, format: :long %></small>
+        </div>
+      <% end %>
 
-    <% if display_user_avatar? %>
-      <div>
-        <%= avatar_image_tag comment.creator %>
-      </div>
-    <% end %>
+    </header>
+    <p class="talkie-comment-body">
+      <%= comment.body %>
+    </p>
 
-    <% if display_user_handler? %>
-      <p><%= link_to_creator comment.creator, class: "creator-link" %></p>
-    <% end %>
+    <div class="talkie-comment-footer">
+      <% if nested_enabled? %>
+        <div class="talkie-comment-reply">
+          <a href="#" class="talkie-comment-reply-link">reply</a>
+          <% if allow? :destroy, comment %>
+            <%= link_to "DELETE", [talkie, comment], method: :delete, class: "talkie-comment-delete" %>
+          <% end %>
+        </div>
+        <div class="talkie-comments-reply-form-container" style="display:none">
+          <%= form_for [talkie, Talkie::Comment.new] do |f| %>
+            <%= f.hidden_field :commentable_id, value: commentable.id %>
+            <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+            <%= hidden_field_tag :parent_comment_id, comment.id %>
 
-    <p><%= comment.body %><br></p>
-
-    <% if nested_enabled? %>
-      <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
-      <div class="reply-form ml-5">
-        <%= form_for [talkie, Talkie::Comment.new] do |f| %>
-          <%= f.hidden_field :commentable_id, value: commentable.id %>
-          <%= f.hidden_field :commentable_type, value: commentable.class.name %>
-          <%= hidden_field_tag :parent_comment_id, comment.id %>
-          <div class="field form-group">
-            <%= f.text_area :body, class: 'form-control' %>
-          </div>
-          <div class="field form-group">
-            <%= submit_tag "Post Reply", class: 'btn btn-primary' %>
-          </div>
-        <% end %>
-      </div>
-      <%= render comment.children %>
-    <% end %>
+            <%= f.text_area :body, placeholder: "Write your reply..." %>
+            <%= submit_tag "Reply", class: 'talkie-comments-form-submit' %>
+          <% end %>
+        </div>
+        <%= render comment.children %>
+      <% end %>
+    </div>
   </div>
 </div>
