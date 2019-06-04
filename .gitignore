@@ -8,6 +8,7 @@
 /tmp/
 /spec/dummy/tmp
 /spec/dummy/log
+*.gem
 
 # rspec failure tracking
 .rspec_status

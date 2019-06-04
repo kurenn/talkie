@@ -25,17 +25,17 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "ammeter"
+  spec.add_development_dependency "ammeter", "~> 1.1"
   spec.add_development_dependency "bundler", "~> 1.17"
-  spec.add_development_dependency "jquery-rails"
+  spec.add_development_dependency "jquery-rails", "~> 4.3"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rails-controller-testing"
+  spec.add_development_dependency "rails-controller-testing", "~> 1.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "rspec-rails"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rspec-rails", "~> 3.8"
+  spec.add_development_dependency "pry", "~> 0.12"
   spec.add_development_dependency "rails-i18n", "~> 5.1"
 
-  spec.add_dependency "rails", ">= 5.0"
-  spec.add_dependency "sassc-rails"
+  spec.add_dependency "rails", "~> 5.0"
+  spec.add_dependency "sassc-rails", "~> 2.1"
   spec.add_dependency "awesome_nested_set", "~> 3.1"
 end
