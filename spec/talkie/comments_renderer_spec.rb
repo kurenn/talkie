@@ -17,9 +17,9 @@ RSpec.describe Talkie::CommentsRenderer do
                                            creator: dummy_user) }
 
     context "with no option set" do
-      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable) }
+      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable, display_user_avatar: false) }
 
-      it "includes the children comments for the root" do
+      it "does not include the children comments for the root" do
         expect(renderer.root_comments[0].association(:creator)).not_to be_loaded
         expect(renderer.root_comments[0].association(:children)).not_to be_loaded
       end

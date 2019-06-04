@@ -19,7 +19,7 @@ module Talkie
     end
 
     def display_user_avatar?
-      @options[:display_user_avatar] || true
+      @options[:display_user_avatar].present?
     end
 
     def display_user_handler?
