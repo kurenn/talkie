@@ -23,7 +23,7 @@ module Talkie
     end
 
     def display_user_handler?
-      @options[:display_user_handler] || true
+      @options[:display_user_handler] || false
     end
 
     def root_comments
