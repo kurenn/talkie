@@ -20,11 +20,15 @@
     </p>
 
     <div class="talkie-comment-footer">
+      <% if !nested_enabled? && deletable_and_allowed?(comment) %>
+        <%= link_to_delete_comment comment %>
+      <% end %>
+
       <% if nested_enabled? %>
         <div class="talkie-comment-reply">
           <a href="#" class="talkie-comment-reply-link"><%= t("talkie.comment.reply") %></a>
-          <% if allow? :destroy, comment %>
-            <%= link_to t("talkie.comment.delete"), [talkie, comment], method: :delete, class: "talkie-comment-delete" %>
+          <% if deletable_and_allowed? comment %>
+            <%= link_to_delete_comment comment %>
           <% end %>
         </div>
         <div class="talkie-comments-reply-form-container" style="display:none">

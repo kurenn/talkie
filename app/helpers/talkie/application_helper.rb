@@ -16,5 +16,15 @@ module Talkie
     def avatar_url(creator)
       Talkie.creator_avatar_url.call(creator)
     end
+
+    def deletable_and_allowed?(comment)
+      deletable? && allow?(:destroy, comment)
+    end
+
+    def link_to_delete_comment(comment)
+      link_to t('talkie.comment.delete'), [talkie, comment],
+              method: :delete,
+              class: 'talkie-comment-delete'
+    end
   end
 end
