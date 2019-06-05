@@ -18,6 +18,10 @@ module Talkie
       @options[:nested] || false
     end
 
+    def deletable?
+      @options[:deletable] || false
+    end
+
     def display_user_avatar?
       @options[:display_user_avatar].present?
     end

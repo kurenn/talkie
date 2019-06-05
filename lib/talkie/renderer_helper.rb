@@ -10,12 +10,14 @@ module Talkie
                                                 root_comments
                                                 nested_enabled?
                                                 display_user_handler?
-                                                display_user_avatar?].freeze
+                                                display_user_avatar?
+                                                deletable?].freeze
 
     HELPER_METHODS = %i[talkie_on
                         nested_enabled?
                         display_user_handler?
                         display_user_avatar?
+                        deletable?
                         root_comments
                         commentable].freeze
 
