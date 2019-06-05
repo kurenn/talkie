@@ -89,6 +89,7 @@ Talkie, currently only offers 3 options for the `talkie_on` helper method:
 | **nested**                                                   | Whether users are able to reply to comments or not. *Default: false* |
 | **display_user_avatar**                                      | Whether the helper should render an avatar. *Default: true* |
 | **display_user_handler**                                     | Whether the helper should render the user handler. *Default: false* |
+| **deletable**                                                | Whether the helper should render the delete link. *Default: false* |
 
 Don't worry about those nasty N+1 queries, Talkie is smart enough to take care of them. You don't need to restart the server for chanes on this invokation.
 
