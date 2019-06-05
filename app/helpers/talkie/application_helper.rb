@@ -22,7 +22,9 @@ module Talkie
     end
 
     def link_to_delete_comment(comment)
-      link_to t('talkie.comment.delete'), [talkie, comment], method: :delete, class: 'talkie-comment-delete'
+      link_to t('talkie.comment.delete'), [talkie, comment],
+              method: :delete,
+              class: 'talkie-comment-delete'
     end
   end
 end
