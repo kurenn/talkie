@@ -20,9 +20,9 @@ module Talkie
     def deletable_and_allowed?(comment)
       deletable? && allow?(:destroy, comment)
     end
-    
+
     def link_to_delete_comment(comment)
-      link_to t("talkie.comment.delete"), [talkie, comment], method: :delete, class: "talkie-comment-delete"
+      link_to t('talkie.comment.delete'), [talkie, comment], method: :delete, class: 'talkie-comment-delete'
     end
   end
 end
