@@ -2,6 +2,8 @@
 
 module Talkie
   class Comment < ActiveRecord::Base
+    include Talkie::Subscribable
+
     default_scope Talkie.default_comments_scope
 
     acts_as_nested_set :scope => [:commentable_id, :commentable_type],
