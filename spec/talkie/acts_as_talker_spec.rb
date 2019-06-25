@@ -16,6 +16,7 @@ RSpec.describe Talkie::ActsAsTalker, type: :model do
     subject { DummyUser.new }
 
     it { is_expected.to have_many(:comments).inverse_of(:creator) }
+    it { is_expected.to have_many(:subscriptions).inverse_of(:subscriber).dependent(:destroy) }
   end
 
 

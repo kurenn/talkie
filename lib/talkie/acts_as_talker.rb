@@ -13,6 +13,11 @@ module Talkie
                               class_name: 'Talkie::Comment',
                               inverse_of: :creator
 
+          has_many :subscriptions, as: :subscriber,
+                                   class_name: 'Talkie::Subscription',
+                                   dependent: :destroy,
+                                   inverse_of: :subscriber
+
           def owns_comment?(comment)
             self == comment.creator
           end

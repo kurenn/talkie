@@ -18,6 +18,20 @@ class CreateTalkieComments < ActiveRecord::Migration[5.0]
     add_index :talkie_comments, :commentable_type
     add_index :talkie_comments, [:creator_id, :creator_type],
               name: 'index_talkie_comments_on_creator_id_and_creator_type'
+
+    create_table :talkie_subscriptions do |t|
+      t.string   :subscriber_type, null: false
+      t.integer  :subscriber_id, null: false
+      t.integer  :comment_id, null: false
+
+      t.timestamps null: false
+    end
+
+    add_index :talkie_subscriptions, [:subscriber_id, :subscriber_type, :comment_id],
+      unique: true,
+      name: 'index_talkie_subscriptions_on_s_id_and_s_type_and_c_id'
+
+    add_index :talkie_subscriptions, :comment_id
   end
 
   def self.down

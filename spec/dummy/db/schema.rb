@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_182237) do
+ActiveRecord::Schema.define(version: 2019_06_25_035556) do
 
   create_table "dummy_commentables", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,12 +33,21 @@ ActiveRecord::Schema.define(version: 2019_05_27_182237) do
     t.integer "lft"
     t.integer "rgt"
     t.integer "children_count", default: 0
-    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commentable_id"], name: "index_talkie_comments_on_commentable_id"
     t.index ["commentable_type"], name: "index_talkie_comments_on_commentable_type"
     t.index ["creator_id", "creator_type"], name: "index_talkie_comments_on_creator_id_and_creator_type"
+  end
+
+  create_table "talkie_subscriptions", force: :cascade do |t|
+    t.string "subscriber_type", null: false
+    t.integer "subscriber_id", null: false
+    t.integer "comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_talkie_subscriptions_on_comment_id"
+    t.index ["subscriber_id", "subscriber_type", "comment_id"], name: "index_talkie_subscriptions_on_s_id_and_s_type_and_c_id", unique: true
   end
 
 end

@@ -25,6 +25,7 @@ RSpec.describe Talkie::Generators::InstallGenerator, type: :generator do
       expect(migration).to exist
       expect(migration).to have_correct_syntax
       expect(migration).to contain("create_table :talkie_comments")
+      expect(migration).to contain("create_table :talkie_subscriptions")
     end
   end
 end
