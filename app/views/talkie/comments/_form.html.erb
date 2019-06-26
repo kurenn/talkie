@@ -3,7 +3,7 @@
     <%= f.hidden_field :commentable_id, value: commentable.id %>
     <%= f.hidden_field :commentable_type, value: commentable.class.name %>
 
-    <%= f.text_area :body, placeholder: t("talkie.comments.form.body_placeholder") %>
+    <%= f.text_area :body, placeholder: t("talkie.comments.form.body_placeholder"), class: "talkie-comment-body-textarea" %>
     <%= f.submit t("talkie.comments.form.submit"), class: "talkie-comments-form-submit" %>
   <% end %>
 </div>

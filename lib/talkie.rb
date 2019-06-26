@@ -3,6 +3,7 @@
 require "talkie/version"
 require "talkie/engine"
 require "awesome_nested_set"
+require "blueprinter"
 
 module Talkie
 
@@ -29,3 +30,4 @@ require "talkie/permission"
 require "talkie/controller"
 require "talkie/renderer_helper"
 require "talkie/subscription_error"
+require "talkie/blueprinter"

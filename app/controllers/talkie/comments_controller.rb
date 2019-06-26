@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Talkie
   class CommentsController < TalkieController
     before_action :current_comment, only: [:destroy]
