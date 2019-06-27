@@ -25,8 +25,10 @@ $( document ).on('ready turbolinks:load', function() {
   $("form.talkie-comments-form").on("submit", function(event) {
     event.stopPropagation();
 
-    $('textarea.talkie-comment-body-textarea').mentionsInput('getMentions', function(data) {
-      $("#comment-mentions").val(JSON.stringify(data));
+    $commentsForm = $(this);
+
+    $commentsForm.find('textarea.talkie-comment-body-textarea').mentionsInput('getMentions', function(data) {
+      $commentsForm.find(".comment-mentions").val(JSON.stringify(data));
     });
 
   })

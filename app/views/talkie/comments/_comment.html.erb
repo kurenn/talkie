@@ -32,12 +32,13 @@
           <% end %>
         </div>
         <div class="talkie-comments-reply-form-container" style="display:none">
-          <%= form_for [talkie, Talkie::Comment.new] do |f| %>
+          <%= form_for [talkie, Talkie::Comment.new], html: { class: "talkie-comments-form" } do |f| %>
             <%= f.hidden_field :commentable_id, value: commentable.id %>
             <%= f.hidden_field :commentable_type, value: commentable.class.name %>
             <%= hidden_field_tag :parent_comment_id, comment.id %>
 
-            <%= f.text_area :body, placeholder: t("talkie.comment.form.body_placeholder") %>
+            <%= f.text_area :body, placeholder: t("talkie.comment.form.body_placeholder"), class: "talkie-comment-body-textarea" %>
+            <%= f.hidden_field :mention_tokens, class: "comment-mentions" %>
             <%= submit_tag t("talkie.comment.form.reply"), class: 'talkie-comments-form-submit' %>
           <% end %>
         </div>
