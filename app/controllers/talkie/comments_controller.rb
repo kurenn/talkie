@@ -14,7 +14,7 @@ module Talkie
           format.html { redirect_to main_app.polymorphic_path(@comment.commentable), notice: "Comment was successfully added." }
           format.js
         else
-          format.html { redirect_to :back, notice: "Something went wrong, blank comments are not allowed" }
+          format.html { redirect_to main_app.polymorphic_path(@comment.commentable), notice: "Something went wrong, blank comments are not allowed" }
           format.js
         end
       end
@@ -28,7 +28,7 @@ module Talkie
     private
 
     def comment_params
-      params.require(:comment).permit(:body, :commentable_id, :commentable_type)
+      params.require(:comment).permit(:body, :commentable_id, :commentable_type, :mention_tokens)
     end
 
     def reply?

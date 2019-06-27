@@ -23,6 +23,7 @@
         elastic       : true, //Grow the textarea automatically
         defaultValue  : '',
         onCaret       : false,
+        conserveTriggerChar: true,
         classes       : {
             autoCompleteItemActive : "active" //Classes to apply in each item
         },
@@ -196,6 +197,10 @@
             var start = currentMessage.substr(0, startCaretPosition);
             var end = currentMessage.substr(currentCaretPosition, currentMessage.length);
             var startEndIndex = (start + mention.value).length + 1;
+
+            if (settings.conserveTriggerChar) {
+              mention.value = settings.triggerChar + mention.value;
+            }
 
             // See if there's the same mention in the list
             if( !_.find(mentionsCollection, function (object) { return object.id == mention.id; }) ) {

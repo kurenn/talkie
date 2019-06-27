@@ -6,7 +6,7 @@ class MentioneesBlueprint < Blueprinter::Base
   fields :email, :username
 
   field :type do |mentionee, _|
-    "#{mentionee.class.to_s.downcase}"
+    "#{mentionee.class.to_s}"
   end
 
   field :name do |mentionee, _|

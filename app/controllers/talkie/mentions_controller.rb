@@ -7,7 +7,7 @@ module Talkie
       mentionees = current_user.class.where("email LIKE ?", "#{query}%")
 
       if query.size < 2
-        render json: { errors: ['Query string is too short (minimum 3 characters)'] },
+        render json: { errors: ['Query string is too short (minimum 2 characters)'] },
                status: :unprocessable_entity
       else
         render json: MentioneesBlueprint.render(mentionees)
