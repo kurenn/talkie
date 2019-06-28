@@ -3,13 +3,13 @@
 class MentioneesBlueprint < Blueprinter::Base
   identifier :id
 
-  fields :email, :username
+  fields :email
 
   field :type do |mentionee, _|
     "#{mentionee.class.to_s}"
   end
 
   field :name do |mentionee, _|
-    "#{mentionee.username}"
+    "#{Talkie.autocomplete_mention_display.call(mentionee)}"
   end
 end

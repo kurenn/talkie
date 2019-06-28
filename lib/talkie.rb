@@ -36,6 +36,9 @@ module Talkie
     @@enable_mentions_notifications
   end
 
+  @@autocomplete_mention_display = lambda { |mentionee| mentionee.email }
+  mattr_accessor :autocomplete_mention_display
+
   def self.configure
     yield self
   end

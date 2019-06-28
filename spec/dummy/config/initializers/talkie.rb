@@ -45,4 +45,5 @@ Talkie.configure do |config|
   # config.creator_avatar_url = lambda { |user| "//api.adorable.io/avatars/40/abott@adorable.png" }
 
   config.enable_mentions = true
+  config.autocomplete_mention_display = lambda { |mentionee| mentionee.username }
 end

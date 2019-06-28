@@ -46,10 +46,12 @@ Talkie.configure do |config|
   # ==> Mentions support
   # If you decide to enable mentions, be aware on some further configuration
   # The first thing to do is to just enable it:
+  #
   # config.enable_mentions = true
   #
   # By default it will send an email to notify the mentioned users
   # but you can override this default configuration like:
+  #
   # config.enable_mentions_notifications = false
   #
   # You can override the query that filter the mentionees
@@ -58,5 +60,15 @@ Talkie.configure do |config|
   # Just keep in mind that the query variable is what you receive when the user
   # types '@' on the textarea, so maybe kurenn@icalialabs.com or so
   # You can change to obey a username column, like so:
+  #
   # config.mentions_scope_query = lambda { |query| where("username ILIKE ?", "%#{query}%") }
+  #
+  # There is another configuration for the mention module you may want to look at it
+  # The autocomplete text, which is by default the email, but probably that would look nasty,
+  # you can override this and use any method or attribute you want for your talker class:
+  #
+  # config.autocomplete_mention_display = lambda { |mentionee| mentionee.username }
+  #
+  # Or maybe something more complex
+  # config.autocomplete_mention_display = lambda { |mentionee| "#{mentionee.first_name} #{mentionee.last_name}" }
 end
