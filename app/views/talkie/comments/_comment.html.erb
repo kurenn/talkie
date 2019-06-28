@@ -38,7 +38,9 @@
             <%= hidden_field_tag :parent_comment_id, comment.id %>
 
             <%= f.text_area :body, placeholder: t("talkie.comment.form.body_placeholder"), class: "talkie-comment-body-textarea" %>
-            <%= f.hidden_field :mention_tokens, class: "comment-mentions" %>
+            <% if Talkie.mentions_enabled? %>
+              <%= f.hidden_field :mention_tokens, class: "comment-mentions" %>
+            <% end %>
             <%= submit_tag t("talkie.comment.form.reply"), class: 'talkie-comments-form-submit' %>
           <% end %>
         </div>

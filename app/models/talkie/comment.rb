@@ -2,8 +2,7 @@
 
 module Talkie
   class Comment < ActiveRecord::Base
-    include Talkie::Subscribable
-    include Talkie::Mentionable
+    include Talkie::Mentionable if Talkie.mentions_enabled?
 
     default_scope Talkie.default_comments_scope
 

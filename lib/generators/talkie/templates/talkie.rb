@@ -43,4 +43,9 @@ Talkie.configure do |config|
   #
   # The default looks like:
   # config.creator_avatar_url = lambda { |user| "//api.adorable.io/avatars/40/abott@adorable.png" }
+
+  # ==> Mentions support
+  # If you decide to enable mentions, be aware on some further configuration
+  # The first thing to do is to just enable it:
+  # config.enable_mentions = true
 end

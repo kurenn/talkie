@@ -3,6 +3,17 @@ require "rails_helper"
 RSpec.describe Talkie do
   let(:dummy_user) { DummyUser.create }
   it { is_expected.to respond_to(:default_comments_scope) }
+  it { is_expected.to respond_to(:enable_mentions) }
+
+  context "when mentions is enabled" do
+    it "returns true" do
+      Talkie.configure do |config|
+        config.enable_mentions = true
+      end
+
+      expect(Talkie).to be_mentions_enabled
+    end
+  end
 
   it "has a version number" do
     expect(Talkie::VERSION).not_to be nil

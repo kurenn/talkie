@@ -5,7 +5,7 @@ module Talkie
     extend ActiveSupport::Concern
 
     included do
-      attr_accessor :mention_tokens
+      attr_writer :mention_tokens
 
       before_create :check_for_mentions!, if: :mentions?
       after_create :notify!, if: :enabled_notifications?
@@ -25,6 +25,10 @@ module Talkie
       NotificationsMailer.with(comment: self, recipients: subscribers.pluck(:email)).mentioned.deliver_now
     end
 
+    def mention_tokens
+      @mention_tokens || Talkie::NilMentionTokens.new.to_s
+    end
+
     private
 
     def subscribers
@@ -36,7 +40,7 @@ module Talkie
     end
 
     def mentionee_klass
-      @mentionee_klass ||= mentions.first["type"].constantize
+      @mentionee_klass ||= mentions.first["type"]&.constantize
     end
 
     def mentions
@@ -46,5 +50,6 @@ module Talkie
     def enabled_notifications?
       true
     end
+
   end
 end

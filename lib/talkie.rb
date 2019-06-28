@@ -19,6 +19,13 @@ module Talkie
   @@creator_avatar_url = lambda { |_user| "//api.adorable.io/avatars/40/abott@adorable.png" }
   mattr_accessor :creator_avatar_url
 
+  @@enable_mentions = false
+  mattr_accessor :enable_mentions
+
+  def self.mentions_enabled?
+    @@enable_mentions
+  end
+
   def self.configure
     yield self
   end
@@ -31,3 +38,4 @@ require "talkie/controller"
 require "talkie/renderer_helper"
 require "talkie/subscription_error"
 require "talkie/blueprinter"
+require "talkie/nil_mention_tokens"
