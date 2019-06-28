@@ -52,47 +52,4 @@ RSpec.describe Talkie::Comment, type: :model do
       end
     end
   end
-
-  describe "#subscribe!" do
-    before do
-      @comment = Talkie::Comment.create(body: "A sample body",
-                                     commentable: commentable,
-                                     creator: user)
-    end
-
-    it "creates a subscription for the subscriber" do
-      expect { @comment.subscribe!(user) }.to change { Talkie::Subscription.count }.by(1)
-    end
-
-    context "when the subscriber is already subscribe" do
-      before do
-        @subscription = @comment.subscribe!(user)
-      end
-
-      it "returns the subscription for that comment in case it exists" do
-
-        expect(@comment.subscribe!(user)).to eq @subscription
-      end
-    end
-  end
-
-  describe "#unsubscribe" do
-    before do
-      @comment = Talkie::Comment.create(body: "A sample body",
-                                     commentable: commentable,
-                                     creator: user)
-
-      @subscription = @comment.subscribe!(user)
-    end
-
-    it "destroys the subscription for the subscriber" do
-      expect { @comment.unsubscribe!(user) }.to change { Talkie::Subscription.count }.by(-1)
-    end
-
-    it "raises an exception of subscription" do
-      @comment.unsubscribe!(user)
-      expect { @comment.unsubscribe!(user) }.to raise_error(Talkie::SubscriptionError)
-    end
-  end
-
 end
