@@ -51,4 +51,12 @@ Talkie.configure do |config|
   # By default it will send an email to notify the mentioned users
   # but you can override this default configuration like:
   # config.enable_mentions_notifications = false
+  #
+  # You can override the query that filter the mentionees
+  # By default the lambda function is
+  # config.mentions_scope_query = lambda { |query| where("email LIKE ?", "#{query}%") }
+  # Just keep in mind that the query variable is what you receive when the user
+  # types '@' on the textarea, so maybe kurenn@icalialabs.com or so
+  # You can change to obey a username column, like so:
+  # config.mentions_scope_query = lambda { |query| where("username ILIKE ?", "%#{query}%") }
 end

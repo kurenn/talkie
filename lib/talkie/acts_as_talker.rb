@@ -18,6 +18,8 @@ module Talkie
                                    dependent: :destroy,
                                    inverse_of: :subscriber
 
+          scope :mentionees, Talkie.mentions_scope_query if Talkie.mentions_enabled?
+
           def owns_comment?(comment)
             self == comment.creator
           end

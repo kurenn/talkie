@@ -22,6 +22,9 @@ module Talkie
   @@enable_mentions = false
   mattr_accessor :enable_mentions
 
+  @@mentions_scope_query = lambda { |query| where("email LIKE ?", "#{query}%") }
+  mattr_accessor :mentions_scope_query
+
   def self.mentions_enabled?
     @@enable_mentions
   end
