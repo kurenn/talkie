@@ -4,8 +4,8 @@ module Talkie
   class MentionsController < TalkieController
     def index
       if query.size < 2
-        render json: { errors: ['Query string is too short (minimum 2 characters)'] },
-               status: :unprocessable_entity
+        render json: { error: 'Query string is too short (minimum 2 characters)' },
+                       status: :unprocessable_entity
       else
         render json: MentioneesBlueprint.render(mentionees)
       end
