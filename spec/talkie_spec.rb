@@ -6,12 +6,18 @@ RSpec.describe Talkie do
   it { is_expected.to respond_to(:enable_mentions) }
 
   context "when mentions is enabled" do
-    it "returns true" do
+    before do
       Talkie.configure do |config|
         config.enable_mentions = true
       end
+    end
 
+    it "returns true" do
       expect(Talkie).to be_mentions_enabled
+    end
+
+    it "enabled notifications as well" do
+      expect(Talkie).to be_notifications_mentions_enabled
     end
   end
 

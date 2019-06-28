@@ -26,6 +26,13 @@ module Talkie
     @@enable_mentions
   end
 
+  @@enable_mentions_notifications = true
+  mattr_accessor :enable_mentions_notifications
+
+  def self.notifications_mentions_enabled?
+    @@enable_mentions_notifications
+  end
+
   def self.configure
     yield self
   end

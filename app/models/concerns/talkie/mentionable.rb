@@ -8,7 +8,7 @@ module Talkie
       attr_writer :mention_tokens
 
       before_create :check_for_mentions!, if: :mentions?
-      after_create :notify!, if: :enabled_notifications?
+      after_create :notify_mentionees!, if: :enabled_notifications?
     end
 
     def check_for_mentions!
@@ -21,7 +21,7 @@ module Talkie
       mention_tokens.present?
     end
 
-    def notify!
+    def notify_mentionees!
       NotificationsMailer.with(comment: self, recipients: subscribers.pluck(:email)).mentioned.deliver_now
     end
 
@@ -48,7 +48,7 @@ module Talkie
     end
 
     def enabled_notifications?
-      true
+      Talkie.notifications_mentions_enabled?
     end
 
   end

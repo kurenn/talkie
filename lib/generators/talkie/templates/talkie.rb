@@ -29,7 +29,6 @@ Talkie.configure do |config|
   # The default looks like:
   # config.creator_path = lambda { |user, router| "#" }
 
-
   # ==> Creator avatar url
   # Configure the avatar url for the comment creator
   # By default it will use a http:////api.adorable.io/avatars/40/abott@adorable.png
@@ -48,4 +47,8 @@ Talkie.configure do |config|
   # If you decide to enable mentions, be aware on some further configuration
   # The first thing to do is to just enable it:
   # config.enable_mentions = true
+  #
+  # By default it will send an email to notify the mentioned users
+  # but you can override this default configuration like:
+  # config.enable_mentions_notifications = false
 end
