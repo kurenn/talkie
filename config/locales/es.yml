@@ -1,6 +1,13 @@
 ---
 es:
   talkie:
+    mailers:
+      notifications:
+        subject: "%{creator} te ha mencionado en una conversación"
+        headline: "Esto es un sistema automático de notificación"
+        reason: "Estas recibiendo este correo por que %{creator} te menciono en una conversación."
+        to_view_conversation_html: "Para responder da clic %{link_to}"
+        here: "aquí"
     comments:
       form:
         submit: "Publicar"

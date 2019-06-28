@@ -4,12 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h4>This is an automatic notification system</h4>
+    <h4><%= t("talkie.mailers.notifications.headline") %></h4>
     <p>
-      You are receiving this notification because <%= @creator.email %> mentioned you on a conversation.
+      <%= t("talkie.mailers.notifications.reason", creator: @creator.email) %>
     </p>
     <p>
-      To view the conversation on the site, just click <%= link_to "here", main_app.polymorphic_url(@comment.commentable, anchor: "talkie-comment-#{@comment.id}") %>
+      <%= t "talkie.mailers.notifications.to_view_conversation_html", link_to: (link_to t("talkie.mailers.notifications.here"), main_app.polymorphic_url(@comment.commentable, anchor: "talkie-comment-#{@comment.id}")) %>
     </p>
   </body>
 </html>

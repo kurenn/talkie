@@ -36,6 +36,9 @@ module Talkie
     @@enable_mentions_notifications
   end
 
+  @@from_mailer_address = "no-reply@change-me-to-your-domain.com"
+  mattr_accessor :from_mailer_address
+
   @@autocomplete_mention_display = lambda { |mentionee| mentionee.email }
   mattr_accessor :autocomplete_mention_display
 
