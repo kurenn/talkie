@@ -1,9 +1,18 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Talkie do
   let(:dummy_user) { DummyUser.create }
   it { is_expected.to respond_to(:default_comments_scope) }
+  it { is_expected.to respond_to(:comment_creator_handler) }
+  it { is_expected.to respond_to(:creator_path) }
+  it { is_expected.to respond_to(:creator_avatar_url) }
   it { is_expected.to respond_to(:enable_mentions) }
+  it { is_expected.to respond_to(:mentions_scope_query) }
+  it { is_expected.to respond_to(:enable_mentions_notifications) }
+  it { is_expected.to respond_to(:from_mailer_address) }
+  it { is_expected.to respond_to(:autocomplete_mention_display) }
 
   context "when mentions is enabled" do
     before do
