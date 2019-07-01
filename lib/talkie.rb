@@ -25,28 +25,29 @@ module Talkie
   mattr_accessor :fail_redirect_to,
                  default: lambda { |router| router.root_url }
 
-  @@enable_mentions = false
-  mattr_accessor :enable_mentions
+  mattr_accessor :enable_mentions,
+                 default: false
 
-  @@mentions_scope_query = lambda { |query| where("email LIKE ?", "#{query}%") }
-  mattr_accessor :mentions_scope_query
+  mattr_accessor :mentions_scope_query,
+                 default: lambda { |query| where("email LIKE ?", "#{query}%") }
+
+
+  mattr_accessor :enable_mentions_notifications,
+                  default: true
+
+  mattr_accessor :from_mailer_address,
+                 default: "no-reply@change-me-to-your-domain.com"
+
+  mattr_accessor :autocomplete_mention_display,
+                 default: lambda { |mentionee| mentionee.email }
 
   def self.mentions_enabled?
     @@enable_mentions
   end
 
-  @@enable_mentions_notifications = true
-  mattr_accessor :enable_mentions_notifications
-
   def self.notifications_mentions_enabled?
     @@enable_mentions_notifications
   end
-
-  @@from_mailer_address = "no-reply@change-me-to-your-domain.com"
-  mattr_accessor :from_mailer_address
-
-  @@autocomplete_mention_display = lambda { |mentionee| mentionee.email }
-  mattr_accessor :autocomplete_mention_display
 
   def self.configure
     yield self
