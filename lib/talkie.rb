@@ -18,6 +18,12 @@ module Talkie
   @@creator_avatar_url = lambda { |_user| "//api.adorable.io/avatars/40/abott@adorable.png" }
   mattr_accessor :creator_avatar_url
 
+  @@success_redirect_to = lambda { |router, commentable| router.polymorphic_path(commentable) }
+  mattr_accessor :success_redirect_to
+
+  @@fail_redirect_to = lambda { |router| router.root_url }
+  mattr_accessor :fail_redirect_to
+
   def self.configure
     yield self
   end

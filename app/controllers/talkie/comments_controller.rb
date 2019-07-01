@@ -9,10 +9,10 @@ module Talkie
       respond_to do |format|
         if @comment.save
           make_child_comment if reply?
-          format.html { redirect_to main_app.polymorphic_path(@comment.commentable), notice: t("talkie.controllers.comments.flash.success") }
+          format.html { redirect_to Talkie.success_redirect_to.call(main_app, @comment.commentable), notice: t("talkie.controllers.comments.flash.success") }
           format.js
         else
-          format.html { redirect_back fallback_location: main_app.root_url, notice: t("talkie.controllers.comments.flash.error") }
+          format.html { redirect_back fallback_location: Talkie.fail_redirect_to.call(main_app), notice: t("talkie.controllers.comments.flash.error") }
           format.js
         end
       end
