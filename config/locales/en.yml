@@ -1,6 +1,11 @@
 ---
 en:
   talkie:
+    controllers:
+      comments:
+        flash:
+          success: "Comment was successfully added."
+          error: "Something went wrong, blank comments are not allowed."
     comments:
       form:
         submit: "Publish"
