@@ -1,4 +1,11 @@
 .talkie {
+  &-hint {
+    color: $talkie-hint-color;
+    font-size: $talkie-hint-font-size;
+    font-style: $talkie-hint-font-style;
+    margin: $talkie-hint-margin;
+  }
+
   &-comments-form-container,
   &-comments-reply-form-container {
     border-bottom: $talkie-form-border-bottom;

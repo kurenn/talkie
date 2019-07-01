@@ -5,6 +5,7 @@
 
     <%= f.text_area :body, placeholder: t("talkie.comments.form.body_placeholder"), class: "talkie-comment-body-textarea" %>
     <% if Talkie.mentions_enabled? %>
+      <p class="talkie-hint"><%= t("talkie.comments.form.hint_html") %></p>
       <%= f.hidden_field :mention_tokens, class: "comment-mentions" %>
     <% end %>
     <%= f.submit t("talkie.comments.form.submit"), class: "talkie-comments-form-submit" %>

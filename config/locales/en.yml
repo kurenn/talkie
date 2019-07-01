@@ -15,6 +15,7 @@ en:
           error: "Something went wrong, blank comments are not allowed."
     comments:
       form:
+        hint_html: "<strong>Hint: </strong> To autocomplete the users, you can add an '@' to activate the autocomplete"
         submit: "Publish"
         body_placeholder: "Write your comment..."
       count:

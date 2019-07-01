@@ -15,6 +15,7 @@ es:
           error: "Algo salió mal, tu comentario no puede estar en blanco."
     comments:
       form:
+        hint_html: "<strong>Ayuda: </strong> Para autocompletar a los usuarios, puedes agregar un '@' antes de su nombre"
         submit: "Publicar"
         body_placeholder: "Escribe tu comentario..."
       count:
