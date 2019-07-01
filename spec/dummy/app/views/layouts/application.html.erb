@@ -19,6 +19,7 @@
   </head>
 
   <body>
+    <%= flash[:notice] %>
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>

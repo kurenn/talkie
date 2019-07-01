@@ -8,6 +8,11 @@ es:
         reason: "Estas recibiendo este correo por que %{creator} te menciono en una conversación."
         to_view_conversation_html: "Para responder da clic %{link_to}"
         here: "aquí"
+    controllers:
+      comments:
+        flash:
+          success: "El comentario fue agregado satisfactoriamente."
+          error: "Algo salió mal, tu comentario no puede estar en blanco."
     comments:
       form:
         submit: "Publicar"

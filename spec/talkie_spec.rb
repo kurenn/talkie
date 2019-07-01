@@ -13,6 +13,8 @@ RSpec.describe Talkie do
   it { is_expected.to respond_to(:enable_mentions_notifications) }
   it { is_expected.to respond_to(:from_mailer_address) }
   it { is_expected.to respond_to(:autocomplete_mention_display) }
+  it { is_expected.to respond_to(:success_redirect_to) }
+  it { is_expected.to respond_to(:fail_redirect_to) }
 
   context "when mentions is enabled" do
     before do

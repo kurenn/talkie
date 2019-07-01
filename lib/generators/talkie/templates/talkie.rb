@@ -71,4 +71,20 @@ Talkie.configure do |config|
   #
   # Or maybe something more complex
   # config.autocomplete_mention_display = lambda { |mentionee| "#{mentionee.first_name} #{mentionee.last_name}" }
+
+  # ==> Redirect for comments controller
+  # There are sometimes you want to redirect to different locations
+  # for the app on success or failure of a comment post,
+  # you can easily achieve this through the following configurations
+  #
+  # The default value for success redirection is:
+  # config.success_redirect_to = lambda { |router, commentable| router.polymorphic_path(commentable) }
+  # You can override it to anything you want. Inside this lambda function
+  # you have access to the main router and the commentable object
+  #
+  # The default value for failure redirection is:
+  # config.fail_redirect_to = lambda { |router| router.url }
+  # Inside the comments controller, the redirection would be to go back
+  # to the page where the submit came, and if not, it will go to this
+  # lambda
 end
