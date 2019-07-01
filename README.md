@@ -11,6 +11,7 @@ Talkie is highly customizable comments engine to easily integrate threads to any
   - [Usage](#usage)
     - [Customization](#customization)
       - [Styles](#styles)
+      - [Enabling mentions](#enabling-mentions)
   - [Development](#development)
   - [Contributing](#contributing)
   - [License](#license)
@@ -103,6 +104,30 @@ Talkie is all about customization, so almost every default style provided by the
 @import "my_variables_to_override";
 @import "talkie/application";
 ```
+
+#### Enabling mentions
+
+Talkie comes with a handy feature that you can toggle in order to
+enable/disable user mentions.
+
+To enable it, just go to you `talkie.rb` initializer file and uncomment
+or add:
+
+```ruby
+config.enable_mentions = true
+```
+
+For customization, check the
+[template](lib/generators/talkie/templates/talkie.rb), you can basically
+override anything to fulfill your needs.
+
+When enabling this module, you need to setup your mailer configuration,
+as with each mentions the commenter subscribes to the comment and
+receives an email, just be aware of that.
+
+If you have a hard time understanding this, you can check the [dummy
+application](spec/dummy) I use for testing or contact
+[me](https://twitter.com/kurenn)
 
 ## Development
 
