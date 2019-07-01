@@ -37,7 +37,7 @@
             <%= f.hidden_field :commentable_type, value: commentable.class.name %>
             <%= hidden_field_tag :parent_comment_id, comment.id %>
 
-            <%= f.text_area :body, placeholder: t("talkie.comment.form.body_placeholder"), class: "talkie-comment-body-textarea" %>
+            <%= f.text_area :body, placeholder: t("talkie.comment.form.body_placeholder"), class: "talkie-comment-body-textarea", required: "required" %>
             <% if Talkie.mentions_enabled? %>
               <p class="talkie-hint"><%= t("talkie.comments.form.hint_html") %></p>
               <%= f.hidden_field :mention_tokens, class: "comment-mentions" %>
