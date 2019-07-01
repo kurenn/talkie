@@ -6,17 +6,23 @@ require "awesome_nested_set"
 
 module Talkie
 
-  @@default_comments_scope = -> { order(created_at: :desc) }
-  mattr_accessor :default_comments_scope
+  mattr_accessor :default_comments_scope,
+                 default: -> { order(created_at: :desc) }
 
-  @@comment_creator_handler = :email
-  mattr_accessor :comment_creator_handler
+  mattr_accessor :comment_creator_handler,
+                 default: :email
 
-  @@creator_path = lambda { |_user, _router| "#" }
-  mattr_accessor :creator_path
+  mattr_accessor :creator_path,
+                 default: lambda { |_user, _router| "#" }
 
-  @@creator_avatar_url = lambda { |_user| "//api.adorable.io/avatars/40/abott@adorable.png" }
-  mattr_accessor :creator_avatar_url
+  mattr_accessor :creator_avatar_url,
+                 default: lambda { |_user| "//api.adorable.io/avatars/40/abott@adorable.png" }
+
+  mattr_accessor :success_redirect_to,
+                 default: lambda { |router, commentable| router.polymorphic_path(commentable) }
+
+  mattr_accessor :fail_redirect_to,
+                 default: lambda { |router| router.root_url }
 
   def self.configure
     yield self

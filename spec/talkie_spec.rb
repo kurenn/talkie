@@ -3,6 +3,8 @@ require "rails_helper"
 RSpec.describe Talkie do
   let(:dummy_user) { DummyUser.create }
   it { is_expected.to respond_to(:default_comments_scope) }
+  it { is_expected.to respond_to(:success_redirect_to) }
+  it { is_expected.to respond_to(:fail_redirect_to) }
 
   it "has a version number" do
     expect(Talkie::VERSION).not_to be nil

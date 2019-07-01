@@ -1,6 +1,11 @@
 ---
 es:
   talkie:
+    controllers:
+      comments:
+        flash:
+          success: "El comentario fue agregado satisfactoriamente."
+          error: "Algo salió mal, tu comentario no puede estar en blanco."
     comments:
       form:
         submit: "Publicar"
