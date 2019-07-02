@@ -22,6 +22,10 @@ module Talkie
       def create_talkie_migration
         migration_template "create_talkie_comments.rb", "db/migrate/create_talkie_comments.rb"
       end
+
+      def add_engine_to_routes_file
+        route "mount Talkie::Engine => '/talkie'"
+      end
     end
   end
 end
