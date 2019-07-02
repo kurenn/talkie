@@ -1,3 +1,5 @@
-<%= render "talkie/comments/form" %>
+<% if comment_form_displayable? %>
+  <%= render "talkie/comments/form" %>
+<% end %>
 
 <%= render root_comments %>

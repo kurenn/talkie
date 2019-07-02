@@ -24,7 +24,7 @@
         <%= link_to_delete_comment comment %>
       <% end %>
 
-      <% if nested_enabled? %>
+      <% if nested_enabled? && comment_form_displayable? %>
         <div class="talkie-comment-reply">
           <a href="#" class="talkie-comment-reply-link"><%= t("talkie.comment.reply") %></a>
           <% if deletable_and_allowed? comment %>

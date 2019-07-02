@@ -2,6 +2,11 @@
 
 module Talkie
   class Permission < Struct.new(:user)
+
+    def comment_form_displayable?
+      user.present?
+    end
+
     def allow?(action, comment = Talkie::Comment.new)
       action = action.to_s
 

@@ -19,12 +19,16 @@ RSpec.describe Talkie::Permission do
 
     it { is_expected.not_to allow_to(:destroy, comment) }
     it { is_expected.not_to allow_to(:create, comment) }
+    it { is_expected.not_to allow_to(:index, comment) }
+    it { is_expected.not_to be_comment_form_displayable }
   end
 
   describe "as logged in user" do
     subject { Talkie::Permission.new(dummy_user) }
 
     it { is_expected.to allow_to(:create, comment) }
+    it { is_expected.to allow_to(:index, comment) }
+    it { is_expected.to be_comment_form_displayable }
 
     context "when the user owns the comment" do
       it { is_expected.to allow_to(:destroy, comment) }
