@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+
 SimpleCov.start 'rails' do
   add_filter "lib/generators/talkie/templates/"
   add_filter "lib/talkie/version.rb"

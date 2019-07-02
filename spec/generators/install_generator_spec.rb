@@ -2,8 +2,14 @@
 
 require "rails_helper"
 require "generators/talkie/install_generator"
+require "pry"
 
 RSpec.describe Talkie::Generators::InstallGenerator, type: :generator do
+
+  before do
+    FileUtils.mkdir "tmp/config"
+    FileUtils.touch "tmp/config/routes.rb"
+  end
 
   describe "initializer" do
     it "is copied to the application" do

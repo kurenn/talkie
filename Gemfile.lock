@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    talkie (0.2.0)
+    talkie (0.3.0)
       awesome_nested_set (~> 3.1)
-      blueprinter
-      oj
+      blueprinter (~> 0.18.0)
+      oj (~> 3.7)
       rails (~> 5.0)
       sassc-rails (~> 2.1)
 
