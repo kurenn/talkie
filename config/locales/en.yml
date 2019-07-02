@@ -1,6 +1,13 @@
 ---
 en:
   talkie:
+    mailers:
+      notifications:
+        subject: "You have been mentioned by %{creator}"
+        headline: "This is an automatic notification system"
+        reason: "You are receiving this notification because %{creator} mentioned you on a conversation."
+        to_view_conversation_html: "To view the conversation on the site, just click %{link_to}"
+        here: "here"
     controllers:
       comments:
         flash:
@@ -8,6 +15,7 @@ en:
           error: "Something went wrong, blank comments are not allowed."
     comments:
       form:
+        hint_html: "<strong>Hint: </strong> To autocomplete the users, you can add an '@' to activate the autocomplete"
         submit: "Publish"
         body_placeholder: "Write your comment..."
       count:

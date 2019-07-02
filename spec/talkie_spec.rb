@@ -1,10 +1,36 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Talkie do
   let(:dummy_user) { DummyUser.create }
   it { is_expected.to respond_to(:default_comments_scope) }
+  it { is_expected.to respond_to(:comment_creator_handler) }
+  it { is_expected.to respond_to(:creator_path) }
+  it { is_expected.to respond_to(:creator_avatar_url) }
+  it { is_expected.to respond_to(:enable_mentions) }
+  it { is_expected.to respond_to(:mentions_scope_query) }
+  it { is_expected.to respond_to(:enable_mentions_notifications) }
+  it { is_expected.to respond_to(:from_mailer_address) }
+  it { is_expected.to respond_to(:autocomplete_mention_display) }
   it { is_expected.to respond_to(:success_redirect_to) }
   it { is_expected.to respond_to(:fail_redirect_to) }
+
+  context "when mentions is enabled" do
+    before do
+      Talkie.configure do |config|
+        config.enable_mentions = true
+      end
+    end
+
+    it "returns true" do
+      expect(Talkie).to be_mentions_enabled
+    end
+
+    it "enabled notifications as well" do
+      expect(Talkie).to be_notifications_mentions_enabled
+    end
+  end
 
   it "has a version number" do
     expect(Talkie::VERSION).not_to be nil

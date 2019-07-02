@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h4><%= t("talkie.mailers.notifications.headline") %></h4>
+    <p>
+      <%= t("talkie.mailers.notifications.reason", creator: @creator.email) %>
+    </p>
+    <p>
+      <%= t "talkie.mailers.notifications.to_view_conversation_html", link_to: (link_to t("talkie.mailers.notifications.here"), main_app.polymorphic_url(@comment.commentable, anchor: "talkie-comment-#{@comment.id}")) %>
+    </p>
+  </body>
+</html>

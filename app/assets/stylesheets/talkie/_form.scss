@@ -1,4 +1,11 @@
 .talkie {
+  &-hint {
+    color: $talkie-hint-color;
+    font-size: $talkie-hint-font-size;
+    font-style: $talkie-hint-font-style;
+    margin: $talkie-hint-margin;
+  }
+
   &-comments-form-container,
   &-comments-reply-form-container {
     border-bottom: $talkie-form-border-bottom;
@@ -15,7 +22,6 @@
       font-size: $talkie-form-textarea-font-size;
       height: $talkie-form-textarea-height;
       line-height: $talkie-form-textarea-line-height;
-      margin-bottom: 10px;
       padding: 10px;
       vertical-align: top;
       width: 100%;

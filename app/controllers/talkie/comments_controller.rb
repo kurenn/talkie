@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Talkie
   class CommentsController < TalkieController
     before_action :current_comment, only: [:destroy]
@@ -28,7 +30,7 @@ module Talkie
     private
 
     def comment_params
-      params.require(:comment).permit(:body, :commentable_id, :commentable_type)
+      params.require(:comment).permit(:body, :commentable_id, :commentable_type, :mention_tokens)
     end
 
     def reply?

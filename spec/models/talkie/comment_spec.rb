@@ -13,6 +13,7 @@ RSpec.describe Talkie::Comment, type: :model do
 
   it { is_expected.to belong_to(:creator).inverse_of(:comments) }
   it { is_expected.to belong_to(:commentable).inverse_of(:comments) }
+  it { is_expected.to have_many(:subscriptions).inverse_of(:comment).dependent(:destroy) }
 
   describe ".default_scope" do
     it "returns the comments in descending order, from newest to oldest" do

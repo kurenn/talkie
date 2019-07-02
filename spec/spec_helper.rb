@@ -65,4 +65,8 @@ RSpec.configure do |config|
     destination File.expand_path("../../tmp", __FILE__)
     prepare_destination
   end
+
+  config.before(:each) do
+    allow_any_instance_of(Talkie::NotificationsMailer).to receive(:mentioned).and_return(true)
+  end
 end
