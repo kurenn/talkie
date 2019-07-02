@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "sassc-rails", "~> 2.1"
   spec.add_dependency "awesome_nested_set", "~> 3.1"
   spec.add_dependency "blueprinter", "~> 0.18.0"
-  spec.add_dependency "oj", "~> 3.17"
+  spec.add_dependency "oj", "~> 3.7"
 end
