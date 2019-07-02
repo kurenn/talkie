@@ -5,8 +5,8 @@ module Talkie
     extend ActiveSupport::Concern
 
     included do
-      delegate :allow?, to: :current_permission
-      helper_method :allow?
+      delegate :allow?, :comment_form_displayable?, to: :current_permission
+      helper_method :allow?, :comment_form_displayable?
     end
 
     protected

@@ -1,7 +1,17 @@
 # frozen_string_literal: true
 
 module Talkie
-  class Permission < Struct.new(:user)
+  class Permission
+    attr_reader :user
+
+    def initialize(user)
+      @user = user
+    end
+
+    def comment_form_displayable?
+      user.present?
+    end
+
     def allow?(action, comment = Talkie::Comment.new)
       action = action.to_s
 
