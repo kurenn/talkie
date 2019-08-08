@@ -88,7 +88,7 @@ Talkie, currently only offers 3 options for the `talkie_on` helper method:
 | Name                                                         | Description                                                  |
 | ------------------------------------------------------------ | :----------------------------------------------------------- |
 | **nested**                                                   | Whether users are able to reply to comments or not. *Default: false* |
-| **display_user_avatar**                                      | Whether the helper should render an avatar. *Default: true* |
+| **display_user_avatar**                                      | Whether the helper should render an avatar. *Default: false* |
 | **display_user_handler**                                     | Whether the helper should render the user handler. *Default: false* |
 | **deletable**                                                | Whether the helper should render the delete link. *Default: false* |
 
