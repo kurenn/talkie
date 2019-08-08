@@ -2,16 +2,15 @@
 
 module Talkie
   class NilMentionTokens
-
     def self.find(ids = [])
       []
     end
 
     def to_s
-      %Q{#{[
+      %{#{[
         {
-          type: self.class.to_s
-        }
+          type: self.class.to_s,
+        },
       ].to_json}}
     end
   end
