@@ -18,7 +18,9 @@ $( document ).on('ready turbolinks:load', function() {
     $commentsForm = $(this);
 
     $commentsForm.find('textarea.talkie-comment-body-textarea').mentionsInput('getMentions', function(data) {
-      $commentsForm.find(".comment-mentions").val(JSON.stringify(data));
+      if(data.length > 0) {
+        $commentsForm.find(".comment-mentions").val(JSON.stringify(data));
+      }
     });
 
   })
