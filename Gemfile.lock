@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    talkie (0.3.3)
+    talkie (0.3.4)
       awesome_nested_set (~> 3.1)
       blueprinter (~> 0.18.0)
       oj (~> 3.7)
