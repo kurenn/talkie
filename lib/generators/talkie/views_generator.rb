@@ -8,7 +8,8 @@ module Talkie
       source_root File.expand_path('../../../app/views/talkie', __dir__)
 
       def copy_views
-        directory 'notifications_mailer', 'app/views/talkie/notifications_mailer'
+        directory 'notifications_mailer',
+                  'app/views/talkie/notifications_mailer'
       end
 
       def copy_comments_views
