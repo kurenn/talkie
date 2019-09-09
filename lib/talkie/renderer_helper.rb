@@ -23,7 +23,9 @@ module Talkie
 
     included do
       delegate *DELEGATED_METHODS_TO_COMMENTS_RENDERER, to: :comments_renderer
-      helper_method *HELPER_METHODS
+      if respond_to?(:helper_method)
+        helper_method *HELPER_METHODS
+      end
     end
 
     protected

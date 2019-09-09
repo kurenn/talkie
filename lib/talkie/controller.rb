@@ -6,7 +6,9 @@ module Talkie
 
     included do
       delegate :allow?, :comment_form_displayable?, to: :current_permission
-      helper_method :allow?, :comment_form_displayable?
+      if respond_to? :helper_method
+        helper_method :allow?, :comment_form_displayable?
+      end
     end
 
     protected
