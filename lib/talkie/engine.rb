@@ -6,7 +6,7 @@ module Talkie
 
     initializer 'talkie_helpers.action_controller' do
       ActiveSupport.on_load :action_controller do
-        ::ActionController::Base.send(:include, Talkie::ApplicationHelper)
+        ::ActionController::Base.helper Talkie::ApplicationHelper
         include Talkie::RendererHelper
         include Talkie::Controller
       end
