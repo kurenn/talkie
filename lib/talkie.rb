@@ -7,6 +7,14 @@ require "blueprinter"
 
 module Talkie
 
+  mattr_accessor :options,
+                 default: {
+                  nested: true,
+                  deletable: true,
+                  display_user_avatar: false,
+                  display_user_handler: true
+                }
+
   mattr_accessor :default_comments_scope,
                  default: -> { order(created_at: :desc) }
 
