@@ -15,7 +15,14 @@ RSpec.describe Talkie::CommentsRenderer do
                                            creator: dummy_user) }
 
     context "with no option set" do
-      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable, display_user_avatar: false) }
+      before do
+        Talkie.options.merge! display_user_avatar: false,
+                              display_user_handler: false,
+                              nested: false
+      end
+
+      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable) }
+
 
       it "does not include the children comments for the root" do
         expect(renderer.root_comments[0].association(:creator)).not_to be_loaded
@@ -24,7 +31,11 @@ RSpec.describe Talkie::CommentsRenderer do
     end
 
     context "with display_user_handler & nested options as true" do
-      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable, nested: true, display_user_handler: true) }
+      before do
+        Talkie.options.merge! nested: true, display_user_handler: true
+      end
+
+      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable) }
 
       it "includes the children comments for the root" do
         expect(renderer.root_comments[0].association(:creator)).to be_loaded
@@ -33,7 +44,11 @@ RSpec.describe Talkie::CommentsRenderer do
     end
 
     context "with display_user_handler option as true" do
-      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable, display_user_handler: true) }
+      before do
+        Talkie.options.merge! display_user_handler: true
+      end
+
+      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable) }
 
       it "includes the children comments for the root" do
         expect(renderer.root_comments[0].association(:creator)).to be_loaded
@@ -41,7 +56,11 @@ RSpec.describe Talkie::CommentsRenderer do
     end
 
     context "with nested option as true" do
-      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable, nested: true) }
+      before do
+        Talkie.options.merge! nested: true
+      end
+
+      let(:renderer) { Talkie::CommentsRenderer.new(nil, dummy_commentable) }
 
       it "includes the children comments for the root" do
         expect(renderer.root_comments[0].association(:children)).to be_loaded
