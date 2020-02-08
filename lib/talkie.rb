@@ -15,6 +15,9 @@ module Talkie
                   display_user_handler: true
                 }
 
+  mattr_accessor :enable_reply_grouping,
+                 default: true
+
   mattr_accessor :default_comments_scope,
                  default: -> { order(created_at: :desc) }
 
@@ -51,6 +54,10 @@ module Talkie
 
   def self.mentions_enabled?
     @@enable_mentions
+  end
+
+  def self.reply_grouping_enabled?
+    @@enable_reply_grouping
   end
 
   def self.notifications_mentions_enabled?
