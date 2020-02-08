@@ -31,6 +31,13 @@
             <%= link_to_delete_comment comment %>
           <% end %>
         </div>
+        <% if comment.replies.size > 0 %>
+          <div class="talkie-comment-group-container">
+            <%= link_to talkie.comment_replies_path(comment), remote: true, class: 'talkie-comment-group-load-more' do %>
+              <strong><%= pluralize comment.replies.size, t('talkie.comment.children.count.singular', plural: t('talkie.comment.children.count.plural')) %></strong>
+            <% end %>
+          </div>
+        <% end %>
         <div class="talkie-comments-reply-form-container" style="display:none">
           <%= form_for [talkie, Talkie::Comment.new], html: { class: "talkie-comments-form" } do |f| %>
             <%= f.hidden_field :commentable_id, value: commentable.id %>
@@ -45,7 +52,9 @@
             <%= submit_tag t("talkie.comment.form.reply"), class: 'talkie-comments-form-submit' %>
           <% end %>
         </div>
-        <%= render comment.children %>
+        <div id="talkie-replies-container-<%= comment.id %>">
+          <%#= render comment.children %>
+        </div>
       <% end %>
     </div>
   </div>

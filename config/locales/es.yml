@@ -22,7 +22,12 @@ es:
         plural: "comentarios"
         singular: "comentario"
     comment:
+      children:
+        count:
+          plural: 'respuestas'
+          singular: 'respuesta'
       reply: "Responder"
+      replies: "respuestas"
       delete: "BORRAR"
       form:
         reply: "Responder"

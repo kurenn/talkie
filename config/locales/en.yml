@@ -22,6 +22,10 @@ en:
         plural: "comments"
         singular: "comment"
     comment:
+      children:
+        count:
+          plural: 'replies'
+          singular: 'reply'
       reply: "Reply"
       delete: "DELETE"
       form:
