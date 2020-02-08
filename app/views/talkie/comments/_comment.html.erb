@@ -34,7 +34,7 @@
         <% if comment.replies.size > 0 %>
           <div class="talkie-comment-group-container">
             <%= link_to talkie.comment_replies_path(comment), remote: true, class: 'talkie-comment-group-load-more' do %>
-              <strong><%= pluralize comment.replies.size, t('talkie.comment.children.count.singular', plural: t('talkie.comment.children.count.plural')) %></strong>
+              <strong><%= pluralize comment.replies.size, t('talkie.comment.children.count.singular'), plural: t('talkie.comment.children.count.plural') %></strong>
             <% end %>
           </div>
         <% end %>
