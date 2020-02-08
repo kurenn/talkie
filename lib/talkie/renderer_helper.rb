@@ -44,7 +44,7 @@ module Talkie
     end
 
     def comments_renderer
-      @comments_renderer ||= Talkie::CommentsRenderer.new(view_context, DummyCommentable.first)
+      @comments_renderer ||= Talkie::CommentsRenderer.new(view_context, current_comment)
     end
 
     def comments_renderer_helper
