@@ -2,7 +2,7 @@
 
 module Talkie
   class CommentsController < TalkieController
-    before_action :current_comment, only: [:destroy]
+    before_action :current_comment, only: %i[destroy]
 
     def create
       @comment = Talkie::Comment.new(comment_params)

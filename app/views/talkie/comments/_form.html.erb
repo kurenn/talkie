@@ -1,5 +1,5 @@
 <div class="talkie-comments-form-container">
-  <%= form_for [talkie, Talkie::Comment.new], html: { class: "talkie-comments-form" } do |f| %>
+  <%= form_for [talkie, Talkie::Comment.new], remote: true, html: { id: 'root-comment-form', class: "talkie-comments-form" } do |f| %>
     <%= f.hidden_field :commentable_id, value: commentable.id %>
     <%= f.hidden_field :commentable_type, value: commentable.class.name %>
 
@@ -12,4 +12,6 @@
   <% end %>
 </div>
 
-<h5 class="talkie-comments-count"><%= pluralize commentable.comments.size, t("talkie.comments.count.singular"), plural: t("talkie.comments.count.plural") %></h5>
+<h5 id="talkie-comments-count" class="talkie-comments-count">
+  <%= pluralize commentable.comments.size, t("talkie.comments.count.singular"), plural: t("talkie.comments.count.plural") %>
+</h5>

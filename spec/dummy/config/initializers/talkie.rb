@@ -46,5 +46,4 @@ Talkie.configure do |config|
 
   config.enable_mentions = true
   config.autocomplete_mention_display = lambda { |mentionee| mentionee.username }
-  config.enable_reply_grouping = false
 end
