@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w[lib]
 
   spec.add_development_dependency 'ammeter', '~> 1.1'
-  spec.add_development_dependency 'bundler', '~> 1.17'
+  spec.add_development_dependency 'bundler', '~> 2.1.4'
   spec.add_development_dependency 'jquery-rails', '~> 4.3'
   spec.add_development_dependency 'pry', '~> 0.12'
   spec.add_development_dependency 'rails-controller-testing', '~> 1.0'
@@ -34,9 +34,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-rails', '~> 3.8'
 
+  spec.add_runtime_dependency 'rails', '>= 5.0'
+
   spec.add_dependency 'awesome_nested_set', '~> 3.1'
   spec.add_dependency 'blueprinter', '~> 0.18.0'
   spec.add_dependency 'oj', '~> 3.7'
-  spec.add_dependency 'rails', '>= 5.0', '<= 6.0'
   spec.add_dependency 'sassc-rails', '~> 2.1'
 end
