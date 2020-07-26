@@ -31,10 +31,17 @@
             <%= link_to_delete_comment comment %>
           <% end %>
         </div>
+        <% if Talkie.reply_grouping_enabled? && comment.replies.size > 0 %>
+          <div class="talkie-comment-group-container">
+            <%= link_to talkie.comment_replies_path(comment), remote: true, class: 'talkie-comment-group-load-more' do %>
+              <strong><%= pluralize comment.replies.size, t('talkie.comment.children.count.singular'), plural: t('talkie.comment.children.count.plural') %></strong>
+            <% end %>
+          </div>
+        <% end %>
         <div class="talkie-comments-reply-form-container" style="display:none">
           <%= form_for [talkie, Talkie::Comment.new], html: { class: "talkie-comments-form" } do |f| %>
-            <%= f.hidden_field :commentable_id, value: commentable.id %>
-            <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+            <%= f.hidden_field :commentable_id, value: comment.commentable.id %>
+            <%= f.hidden_field :commentable_type, value: comment.commentable.class.name %>
             <%= hidden_field_tag :parent_comment_id, comment.id %>
 
             <%= f.text_area :body, placeholder: t("talkie.comment.form.body_placeholder"), class: "talkie-comment-body-textarea", required: "required" %>
@@ -45,7 +52,9 @@
             <%= submit_tag t("talkie.comment.form.reply"), class: 'talkie-comments-form-submit' %>
           <% end %>
         </div>
-        <%= render comment.children %>
+        <div id="talkie-replies-container-<%= comment.id %>">
+          <%= render comment.children unless Talkie.reply_grouping_enabled? %>
+        </div>
       <% end %>
     </div>
   </div>

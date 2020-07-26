@@ -12,7 +12,7 @@ $( document ).on('ready turbolinks:load', function() {
     }
   });
 
-  $("form.talkie-comments-form").on("submit", function(event) {
+  $("form.talkie-comments-form input[type='submit']").on("click", function(event) {
     event.stopPropagation();
 
     $commentsForm = $(this);
@@ -22,6 +22,5 @@ $( document ).on('ready turbolinks:load', function() {
         $commentsForm.find(".comment-mentions").val(JSON.stringify(data));
       }
     });
-
   })
 })

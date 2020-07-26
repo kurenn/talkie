@@ -1,4 +1,13 @@
 .talkie {
+  &-comment-group-container {
+    margin-bottom: 25px;
+
+    a {
+      color: #555;
+      text-decoration: none;
+    }
+  }
+
   &-comments-count {
     color: $talkie-comments-count-color;
     margin: $talkie-comments-count-margin;

@@ -15,5 +15,9 @@ module Talkie
     has_many :subscriptions, dependent: :destroy, inverse_of: :comment
 
     validates :body, :creator, :commentable, presence: true
+
+    def replies
+      @replies ||= descendants
+    end
   end
 end

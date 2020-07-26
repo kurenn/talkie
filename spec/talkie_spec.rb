@@ -9,6 +9,7 @@ RSpec.describe Talkie do
   it { is_expected.to respond_to(:creator_path) }
   it { is_expected.to respond_to(:creator_avatar_url) }
   it { is_expected.to respond_to(:enable_mentions) }
+  it { is_expected.to respond_to(:enable_reply_grouping) }
   it { is_expected.to respond_to(:mentions_scope_query) }
   it { is_expected.to respond_to(:enable_mentions_notifications) }
   it { is_expected.to respond_to(:from_mailer_address) }
@@ -29,6 +30,18 @@ RSpec.describe Talkie do
 
     it "enabled notifications as well" do
       expect(Talkie).to be_notifications_mentions_enabled
+    end
+  end
+
+  context "when grouping is enabled" do
+    before do
+      Talkie.configure do |config|
+        config.enable_reply_grouping = false
+      end
+    end
+
+    it "returns true" do
+      expect(Talkie).not_to be_reply_grouping_enabled
     end
   end
 

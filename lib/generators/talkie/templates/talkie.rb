@@ -72,6 +72,14 @@ Talkie.configure do |config|
   # Or maybe something more complex
   # config.autocomplete_mention_display = lambda { |mentionee| "#{mentionee.first_name} #{mentionee.last_name}" }
 
+  # ==> Enable replies grouping
+  # As an optimization matter you can now enable the replies grouping
+  # option, which automatically will group all of the replies for the root
+  # comment, and provide a link to load them
+  #
+  # This feature is activated by default, but you can turn it off like:
+  # config.enable_reply_grouping = false
+
   # ==> Redirect for comments controller
   # There are sometimes you want to redirect to different locations
   # for the app on success or failure of a comment post,

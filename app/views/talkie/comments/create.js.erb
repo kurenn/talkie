@@ -1,0 +1,3 @@
+$('#root-comment-form')[0].reset()
+$('#root-comments').prepend('<%= j render @comment %>');
+$('#talkie-comments-count').html('<%= j pluralize @comment.commentable.comments.size, t("talkie.comments.count.singular"), plural: t("talkie.comments.count.plural") %>');
